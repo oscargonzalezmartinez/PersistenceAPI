@@ -33,19 +33,27 @@ Alguna de las características que soporta son:
 <br>
 		//añadimos las tablas<br>
 `		select.addFrom(EstadoExpediente.class).addFrom(TipoBloque.class); `<br>
-`		<br>
+		<br>
 		//añadimos las restricciones<br>
 `		select.addCondition(SQLCondition.getAND(EstadoExpediente.class, "expediente", <br>idExpediente)) `<br>
 `			.addCondition(new <br>SQLJoinCondition(EstadoExpediente.class,"numeroBloque",TipoBloque.class,"numeroBloque")); `
 <br>
-`		SQLOrderBy orderBy =  new SQLOrderBy(); `<br>
-`		orderBy.addField(EstadoExpediente.class, "fechaDetalle"); `<br>
-`		orderBy.addField(EstadoExpediente.class, "numeroBloque"); `<br>
+`		SQLOrderBy orderBy =  new SQLOrderBy(); `
 <br>
-`		select.setOrderBy(orderBy); `<br>
+`		orderBy.addField(EstadoExpediente.class, "fechaDetalle"); `
 <br>
-`		select.setOutputModel(EstadoExpediente.class); `<br>
+`		orderBy.addField(EstadoExpediente.class, "numeroBloque"); `
+<br>
+<br>
+`		select.setOrderBy(orderBy); `
+
+<br>
+`		select.setOutputModel(EstadoExpediente.class); `
+<br>
 
 
 Pues parece que está muy bien, ¿no?. <br>
 Funciona y funciona muy bien, me lo he pasado teta desarrollándolo, pero no lo recomedaría para su uso en producción, básicamente porque no hay ningún tipo de soporte, aunque el código es muy legible y facilmente extensible, puede ser difícil al principio entender cómo funciona.
+
+Quizás te interesen mis pensamientos en voz alta
+[Más que Ceros y Unos](https://masquecerosyunos.wordpress.com/)
