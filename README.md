@@ -10,7 +10,7 @@ Alguna de las características que soporta son:
 	user.setName("David");<br>
 	user.setAge(32);<br>
 	DAOUtilityExample.find(user);<br>
-	//ejemplo	[DAOUtilityExample](blob/master/src/test/java/com/ogm/persistance/test/dao/impl/DAOUtilityExample.java)
+	//ejemplo	[DAOUtilityExample](src/test/java/com/ogm/persistance/test/dao/impl/DAOUtilityExample.java)
 * Paginación sencilla
 * Lazy loading con Proxy de JDK.
 * POJOS Anotados o ficheros por XML.
