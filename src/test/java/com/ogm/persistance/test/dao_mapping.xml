@@ -1,0 +1,75 @@
+<configuration>
+
+<!-- Estos son los valores por defecto, con lo que no es necesario indicarlos
+	<section name="processors">
+		<entry key="select" value="com.ogm.po2008.dao.sql.processors.DefaultSelectProcessorImpl" />
+		<entry key="insert" value="com.ogm.po2008.dao.sql.processors.DefaultInsertProcessorImpl" />
+		<entry key="update" value="com.ogm.po2008.dao.sql.processors.DefaultUpdateProcessorImpl" />
+		<entry key="delete" value="com.ogm.po2008.dao.sql.processors.DefaultDeleteProcessorImpl" />
+	</section>	
+-->
+	<section name="config">
+		<!-- opcional si es BBDD Oracle --> 
+		<entry key="dialect" value="dialect.HSQLDialect" />
+		
+		<!-- esquema de bbdd. No es necesario si el usario es el propietario -->
+		<entry key="bd.schema" value="PUBLIC" /> 
+	
+		<!-- estas entradas son una indireccion a la configuracion del framework.
+		Solo son necesarias si se usa con el Framewrok Caser  
+		<entry key="bdsection" value="bbddnegocio" />
+		<entry key="bdsschema" value="schema" /> -->
+		
+		
+		<!--  es mucho mas aconsejable utilizar los providers de acceso a JNDI:
+		<entry key="datasource.provider" value="com.ogm.persistance.ds.FrameworkDataSourceProviderImpl" />
+		<entry key="datasource.provider.ds.bean.name" 			value="baseDatosNegocioDataSource" />
+		 -->
+		<entry key="datasource.provider" 			value="com.ogm.persistance.ds.StandAloneDataSourceProvider" />
+		<entry key="datasource.provider.url"  		value="jdbc:hsqldb:mem:PUBLIC" />
+		<entry key="datasource.provider.driver"  	value="org.hsqldb.jdbc.JDBCDriver" />		
+		<!-- <entry key="datasource.provider.password"  	value="ADM_BPMPO" />
+		<entry key="datasource.provider.user"  		value="ADM_BPMPO" />
+ 		-->
+ 		<!-- El trnsaction manager normalmente no lo utilizaremos, solo para standalone -->
+ 		<entry key="transaction.manager"			value="com.ogm.persistance.tx.DataSourceTransaction" />
+ 		
+ 		<!--  fichero de querys object. Opcional -->
+		<entry key="queries" value="com/ogm/persistance/test/queries.xml" />
+
+		  <!-- indica que se incluirá una paginación a todas las queries de consulta -->
+		  <!--
+		 <entry key="sql.pagination.mandatory" value="true" />
+		  -->
+		 <!-- un máximo de 2000 registros -->
+		 <!-- 
+		 <entry key="sql.pagination.max" value="2000" />
+		  --> 
+	</section>
+	<section name="mappings">
+
+	   <entry key="mapping.1" value="com.ogm.persistance.test.model.Usuario"/>
+	   <entry key="mapping.2" value="com.ogm.persistance.test.model.Detalle"/>
+	   <entry key="mapping.3" value="com.ogm.persistance.test.model.Proyecto"/>
+	   <!-- 
+	   <entry key="mapping.2" value="com.ogm.persistance.test.model.EmisionesMensuales"/>
+        <entry key="mapping.3" value="com.ogm.persistance.test.model.Expediente"/>
+        <entry key="mapping.4" value="com.ogm.persistance.test.model.EstadoExpediente"/>
+        <entry key="mapping.5" value="com.ogm.persistance.test.model.TipoBloque"/>
+        
+        <entry key="mapping.6" value="com.ogm.persistance.test.model.ProTmp"/>
+        <entry key="mapping.7" value="com.ogm.persistance.test.model.NoExiste"/>
+        
+        <entry key="mapping.8" value="com.ogm.persistance.test.model.ExpedienteR"/>
+        
+        
+        		<entry key="mapping.9" value="com/ogm/trazabilidad/model/Ejemplar"/>
+		<entry key="mapping.10" value="com/ogm/trazabilidad/model/LoteImpresion"/>
+		<entry key="mapping.11" value="com/ogm/trazabilidad/model/ParametroNegocio"/>
+		<entry key="mapping.12" value="com/ogm/trazabilidad/model/TablaNegocio"/>
+		<entry key="mapping.13" value="com/ogm/trazabilidad/model/Destinatario"/>
+		<entry key="mapping.14" value="com/ogm/trazabilidad/model/Envio"/>
+		<entry key="mapping.15" value="com/ogm/trazabilidad/model/DestinatarioFinal"/>		   
+ -->
+	</section>
+</configuration>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean 	id="com.ogm.persistance.sql.SQLCondition" 
+			class="com.ogm.persistance.sql.conditions.render.BasicConditionRender"
+			singleton="true" />
+
+	<bean 	id="com.ogm.persistance.sql.conditions.SQLBetweenCondition" 
+			class="com.ogm.persistance.sql.conditions.render.BetweenConditionRender"
+			singleton="true" />
+	
+	<bean 	id="com.ogm.persistance.sql.conditions.SQLBracket" 
+			class="com.ogm.persistance.sql.conditions.render.BracketConditionRender"
+			singleton="true" />
+	
+	<bean 	id="com.ogm.persistance.sql.conditions.SQLJoinCondition" 
+			class="com.ogm.persistance.sql.conditions.render.JoinRender"
+			singleton="true" />		
+
+	<bean 	id="com.ogm.persistance.sql.conditions.SQLNullCondition" 
+			class="com.ogm.persistance.sql.conditions.render.IsNullRender"
+			singleton="true" />
+			
+<!-- functions renders -->								
+	
+	<bean 	id="functionRender" 
+			class="com.ogm.persistance.sql.conditions.render.BasicFunctionRender"
+			singleton="true" />
+	
+	<bean 	id="patternFunctionRender" 
+			class="com.ogm.persistance.sql.conditions.render.PatternFunctionRender"
+			singleton="true" />
+					
+	<alias name="functionRender" alias="UPPER"/>
+	<alias name="functionRender" alias="LOWER"/>	
+	<alias name="functionRender" alias="AVG"/>	
+	<alias name="functionRender" alias="COUNT"/>	
+	<alias name="functionRender" alias="FIRST"/>	
+	<alias name="functionRender" alias="LAST"/>	
+	<alias name="functionRender" alias="MAX"/>	
+	<alias name="functionRender" alias="MIN"/>	
+	<alias name="functionRender" alias="SUM"/>	
+
+	<bean 	id="LIKE" 
+			class="com.ogm.persistance.sql.conditions.render.LikeRender"
+			singleton="true" />	
+			
+	<bean 	id="IN" 
+			class="com.ogm.persistance.sql.conditions.render.InRender"
+			singleton="true" />	
+			
+	<bean 	id="NOT_IN" 
+			class="com.ogm.persistance.sql.conditions.render.InRender"
+			singleton="true" />	
+
+	<alias name="patternFunctionRender" alias="TO_CHAR"/>
+	<alias name="patternFunctionRender" alias="TO_DATE"/>
+	<alias name="patternFunctionRender" alias="TRUNC"/>			
+									
+</beans>

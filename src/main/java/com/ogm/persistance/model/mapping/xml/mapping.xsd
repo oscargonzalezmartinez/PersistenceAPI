@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+	
+
+	<xsd:complexType name="mapping">
+
+		<xsd:sequence>
+									
+            
+            <xsd:element name="pk" minOccurs="0" maxOccurs="1">							
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="keyGenerator"  minOccurs="1" maxOccurs="1">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="type" minOccurs="1" maxOccurs="1" />
+									<xsd:element name="name" minOccurs="0" maxOccurs="1" />
+								</xsd:sequence>									
+							</xsd:complexType>	
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="column" use="optional" type="xsd:string" />
+				</xsd:complexType>
+				
+			</xsd:element>
+
+			<xsd:element  name="attribute" minOccurs="1" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:attribute name="name" use="required" type="xsd:string"/>
+					<xsd:attribute name="column" use="required" type="xsd:string"/>
+					<xsd:attribute name="type" use="required" type="xsd:string"/>
+					<xsd:attribute name="transient" use="optional" type="xsd:boolean"/>
+					<xsd:attribute name="pk" use="optional" type="xsd:boolean"/>
+				</xsd:complexType> 
+			</xsd:element>	
+		
+			<xsd:element  name="relationship" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="field"  minOccurs="1" maxOccurs="1" type="xsd:string"/>
+							<xsd:element name="targetClass"  minOccurs="1" maxOccurs="1" type="xsd:string"/>
+							<xsd:element name="targetField"  minOccurs="1" maxOccurs="1" type="xsd:string"/>
+							<xsd:element name="readOnly"  minOccurs="1" maxOccurs="1" type="xsd:boolean"/>
+						</xsd:sequence>
+					</xsd:complexType>
+			</xsd:element>	
+				
+		</xsd:sequence>
+		
+		<xsd:attribute name="class" use="required" type="xsd:string" />
+		<xsd:attribute name="table" use="required" type="xsd:string" />
+	</xsd:complexType>
+	
+</xsd:schema>

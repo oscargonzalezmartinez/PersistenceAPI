@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<querys>
+<!-- Esta query es solo un ejemplo de uso.  -->
+
+	<namedQuery key="proyecto.texto.qmark">
+		<query>
+		<![CDATA[
+			select * from Proyecto
+			where texto is not null and idUsuario > ?
+			order by idUsuario asc
+		]]>
+		</query>
+		<model>com.ogm.persistance.test.model.Proyecto</model>
+	</namedQuery>
+	
+	<namedQuery key="proyecto.texto.attr">
+		<query>
+		<![CDATA[
+			select * from Proyecto
+			where texto is not null and idUsuario > :=id
+			order by idUsuario asc
+		]]>
+		</query>
+		<model>com.ogm.persistance.test.model.Proyecto</model>
+	</namedQuery>
+	
+<!-- 
+	<namedQuery key="emisiones.mensuales">
+		<query>
+			select da,tipoTarea,count(*) c from (
+				select to_char(inicioExped,'YYYY-MM') da,tipoTarea
+				from Expediente
+				where tipoProceso = :=tipoProceso and tipoTarea= :=tipoTarea
+			)
+			group by da,tipoTarea
+			order by da desc
+		</query>
+		<model>es.caser.persistance.test.model.EmisionesMensuales</model>
+	</namedQuery>
+
+    <namedQuery key="test2">
+        <query>
+        <![CDATA[
+            select da,tipoTarea,count(*) c from (
+                select to_char(inicioExped,'YYYY-MM') da,tipoTarea
+                from Expediente
+                where tipoProceso = :=tipoProceso and tipoTarea<>'1234'
+            )
+            group by da,tipoTarea
+            order by da desc
+        ]]>
+        </query>
+        <model>es.caser.persistance.test.model.EmisionesMensuales</model>
+    </namedQuery>
+
+    <namedQuery key="recibo400.poliza.or.certificado">
+        <query>
+        <![CDATA[
+                select *
+                from Expediente
+                where reciboAs400 = :=reciboAs400 and 
+                (poliza= :=poliza or certificado= :=poliza )
+        ]]>
+        </query>
+        <model>es.caser.persistance.test.model.Expediente</model>
+    </namedQuery>
+    <namedQuery key="expediente.fecha.efecto.or.null">
+
+        <query>
+            select * from (
+                select * from Expediente 
+                where cia= :=cia
+                and ramo= :=ramo
+                and modalidad= :=modalidad
+                and submodalidad= :=submodalidad
+                and poliza= :=poliza
+                and certificado= :=certificado
+            )
+            where ( fechaEfectoPoliza= :=fechaEfectoPoliza or fechaEfectoPoliza is null)
+        </query>
+        <model>es.caser.persistance.test.model.Expediente</model>
+    </namedQuery>
+    
+    select 	Ejemplar.anio, Ejemplar.app, Ejemplar.numero, Ejemplar.numEjemplar, Ejemplar.redPostal
+					Ejemplar.claveMontaje, Ejemplar.subclaveMontaje, Ejemplar.pg, DestinatarioFinal.cp cp
+			from DestinatarioFinal, Ejemplar
+			where Ejemplar.codLoteImp = ?
+			and Ejemplar.estadoEnsobrado = ?
+			and DestinatarioFinal.numDestinFinal = Ejemplar.codDestFinal
+    	-->
+		<!--
+    	<namedQuery key="ejemplar.con.codigoPostal">
+		<query>
+		<![CDATA[
+select 	Ejemplar.anio, Ejemplar.app, Ejemplar.numero, Ejemplar.numEjemplar, Ejemplar.redPostal,
+					Ejemplar.claveMontaje, Ejemplar.subclaveMontaje, Ejemplar.pg, DestinatarioFinal.cp cp
+			from DestinatarioFinal, Ejemplar
+			where Ejemplar.codLoteImp = ?
+			and Ejemplar.estadoEnsobrado = ?
+			and DestinatarioFinal.numDestinFinal = Ejemplar.codDestFinal
+]]>
+		</query>
+		<model>es.caser.trazabilidad.model.Ejemplar</model>
+	</namedQuery>	
+	-->
+</querys>

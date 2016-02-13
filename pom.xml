@@ -1,0 +1,293 @@
+<!-- 
+$LastChangedBy: OGOMAR01 $ 
+$LastChangedRevision: 5451 $ 
+$LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ogm</groupId>
+  <artifactId>persistance</artifactId>
+  <packaging>jar</packaging>
+  <version>1.5</version>
+  <properties>
+     <version.internal>1.4.1</version.internal>
+     <title>Persistance API</title>
+     <vendor>OGM</vendor>
+  </properties>
+  
+
+
+  <developers>
+        <developer>
+            <id>ogonzalez</id>
+            <name>Oscar Gonzalez</name>
+            <email>oscargonzalezmartinez@gmail.com</email>
+            <roles>
+                <role>Persistance Lead</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>      
+    <build>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    
+
+    <plugin> 
+        <artifactId>maven-antrun-plugin</artifactId> 
+        <executions> 
+            <execution> 
+            <id>substitution</id> 
+            <phase>process-resources</phase> 
+             <configuration> 
+             <tasks> 
+             
+                <property name="ant.regexp.regexpimpl" value="org.apache.tools.ant.util.regexp.Jdk14RegexpRegexp"/>
+                <tstamp>
+                    <format property="TSTAMP" pattern="dd/MM/yyyy HH:mm:ss" />
+                </tstamp>
+               
+                <replaceregexp file="${project.build.outputDirectory}/es/caser/persistance/bundle/app.properties"
+                                 match="ant-build-date"
+                                 replace="${TSTAMP}"
+                                 byline="true"/>
+                 <replaceregexp file="${project.build.outputDirectory}/es/caser/persistance/bundle/app.properties"
+                                 match="version.internal"
+                                 replace="${version.internal}"
+                                 byline="true"/>
+              </tasks> 
+               </configuration> 
+               <goals> <goal>run</goal> </goals>
+             </execution> 
+         </executions> 
+        <dependencies> 
+        <dependency> 
+            <groupId>ant</groupId> 
+            <artifactId>ant-nodeps</artifactId> 
+            <version>1.6.5</version> 
+        </dependency> 
+    </dependencies> 
+    </plugin> 
+
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Implementation-Title>${title}</Implementation-Title>
+              <Implementation-Version>${version.internal}</Implementation-Version>
+                <Implementation-Vendor>${vendor}</Implementation-Vendor>              
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+
+    </plugins>
+    
+    <resources>
+      <resource>
+        <directory> src/main/java </directory>
+        <includes>
+          <include> **/*.properties </include>
+          <include> **/*.xml </include>
+        </includes>
+      </resource>
+    </resources>
+
+    <testResources>
+      <testResource>
+		        <directory> src/test/java </directory>
+		        <includes>
+		          <include> **/*.properties </include>
+		          <include> **/*.xml </include>
+				  <include> **/*.ddl </include>
+		        </includes>
+      </testResource>
+    </testResources>
+  </build>
+
+ <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+               
+                    <configLocation>${basedir}/checkstyle.xml</configLocation>
+                    <suppressionsLocation>${basedir}/checkstyle-suppressions.xml</suppressionsLocation>
+
+                    <enableRulesSummary>false</enableRulesSummary>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <linksource>true</linksource>
+                    <links>
+                        <link>http://java.sun.com/j2se/1.4.2/docs/api/</link>
+                        <link>http://commons.apache.org/collections/api-release/</link>
+                    </links>
+                </configuration>
+            </plugin>
+            
+            
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>findbugs-maven-plugin</artifactId>
+            <version>2.3</version>
+          </plugin>
+            
+            
+        </plugins>
+    </reporting>
+
+  <dependencies>
+   
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+      <version>1.7.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.2.2</version>
+      <scope>provided</scope>
+    </dependency>  
+    
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1</version>
+      <scope>provided</scope>
+    </dependency>
+        
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>3.0.3.RELEASE</version>
+      <scope>provided</scope>
+    </dependency> 
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>3.0.3.RELEASE</version>
+      <scope>provided</scope>
+    </dependency>   
+    
+    <dependency>
+      <groupId>antlr-runtime</groupId>
+      <artifactId>antlr-runtime</artifactId>
+      <version>3.1.1</version>
+      <scope>compile</scope>
+    </dependency>    
+    <dependency>
+      <groupId>jfig</groupId>
+      <artifactId>jfig</artifactId>
+      <version>1.5.2</version>
+      <scope>provided</scope>
+    </dependency>
+  
+    <dependency>
+      <groupId>jaxb-api</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.1</version>
+      <scope>provided</scope>
+    </dependency> 
+      
+    <dependency>
+      <groupId>jaxb-impl</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>2.1</version>
+      <scope>provided</scope>
+    </dependency> 
+    
+   <dependency>
+      <groupId>jsr173_1.0_api</groupId>
+      <artifactId>jsr173_1.0_api</artifactId>
+      <version>1.0</version>
+      <scope>provided</scope>
+    </dependency>  
+    
+   <dependency>
+      <groupId>activation</groupId>
+      <artifactId>activation</artifactId>
+      <version>1.1</version>
+      <scope>test</scope>
+    </dependency>        
+
+   <dependency>
+      <groupId>framework</groupId>
+      <artifactId>framework</artifactId>
+      <version>2.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+   <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.4</version>
+      <scope>provided</scope>
+    </dependency>
+     
+    <dependency>
+      <groupId>javassist</groupId>
+      <artifactId>javassist</artifactId>
+      <version>3.11.0</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.6</version>
+      <scope>test</scope>
+    </dependency>  
+    
+    <dependency>
+      <groupId>jdbc</groupId>
+      <artifactId>oracledriver</artifactId>
+      <version>10.1.0.5.0</version>
+      <scope>test</scope>
+    </dependency>  
+     
+<dependency>
+	<groupId>org.apache.derby</groupId>
+	<artifactId>derby</artifactId>
+	<version>10.12.1.1</version>
+	<scope>test</scope>
+</dependency>
+
+<dependency>
+	<groupId>org.hsqldb</groupId>
+	<artifactId>hsqldb</artifactId>
+	<version>2.3.3</version>
+		<scope>test</scope>
+</dependency>
+     
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.9</version>
+      <scope>runtime</scope>
+    </dependency>     
+  </dependencies>
+</project>

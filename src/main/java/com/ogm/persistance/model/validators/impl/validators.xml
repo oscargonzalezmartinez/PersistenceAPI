@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean 	id="MANDATORY" 
+			class="com.ogm.persistance.model.validators.impl.MandatoryValidator"
+			singleton="true" />
+
+    <bean   id="MAX_LENGTH" 
+            class="com.ogm.persistance.model.validators.impl.MaxLengthValidator"
+            singleton="true" />			
+
+     
+</beans>

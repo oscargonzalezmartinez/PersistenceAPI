@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- 
+$LastChangedBy: OGOMAR01 $ $LastChangedRevision: 5451 $ 
+$LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
+ -->
+ 
+<beans>
+	<bean 	id="select" 
+			class="com.ogm.persistance.sql.processors.impl.DefaultSelectProcessorImpl"
+			lazy-init="true"
+			singleton="false" />
+
+	<bean 	id="insert" 
+			class="com.ogm.persistance.sql.processors.impl.DefaultInsertProcessorImpl"
+			lazy-init="true"
+			singleton="false" />
+	
+	<bean 	id="update" 
+			class="com.ogm.persistance.sql.processors.impl.DefaultUpdateProcessorImpl"
+			lazy-init="true"
+			singleton="false" />
+	
+	<bean 	id="delete" 
+			class="com.ogm.persistance.sql.processors.impl.DefaultDeleteProcessorImpl"
+			lazy-init="true"
+			singleton="false" />		
+
+	<bean 	id="IFrameworkConfigWrapper" 
+			class="com.ogm.persistance.model.config.FrameworkConfigWrapper"
+			lazy-init="true"
+			singleton="true" />
+			
+<!-- dialectos -->								
+	
+	<bean 	id="dialect.oracle" 
+			class="com.ogm.persistance.sql.processors.impl.dialect.OracleDialect"
+			lazy-init="true"
+			singleton="true" />
+			
+	<bean 	id="dialect.mysql" 
+			class="com.ogm.persistance.sql.processors.impl.dialect.MySqlDialect"
+			lazy-init="true"
+			singleton="true" />
+	
+	<bean 	id="dialect.HSQLDialect" 
+			class="com.ogm.persistance.sql.processors.impl.dialect.HSQLDialect"
+			lazy-init="true"
+			singleton="true" />	
+		 					
+</beans>
