@@ -36,27 +36,25 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                     <target>1.5</target>
                 </configuration>
             </plugin>
-            
-           <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>build-helper-maven-plugin</artifactId>
-            <version>1.10</version>
-            <executions>
-                <execution>
-					<phase>initialize</phase>
-                    <id>timestamp-property</id>
-                    <goals>
-                        <goal>timestamp-property</goal>
-                    </goals>
-                    <configuration>
-                        <name>version.timestamp</name>
-                        <pattern>dd/MM/yyyy HH:mm:ss</pattern>
-                       <timeZone>Europe/Madrid</timeZone>
-                    </configuration>
-                </execution>
-            </executions>
-        	</plugin>
-        
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.10</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <id>timestamp-property</id>
+                        <goals>
+                            <goal>timestamp-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>version.timestamp</name>
+                            <pattern>dd/MM/yyyy HH:mm:ss</pattern>
+                            <timeZone>Europe/Madrid</timeZone>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 <!-- 
     <plugin> 
         <artifactId>maven-antrun-plugin</artifactId> 
@@ -250,7 +248,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.6</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
 <!-- 
