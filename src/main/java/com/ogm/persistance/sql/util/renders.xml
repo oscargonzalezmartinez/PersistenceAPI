@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
-
-<beans>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
 	<bean 	id="com.ogm.persistance.sql.SQLCondition" 
 			class="com.ogm.persistance.sql.conditions.render.BasicConditionRender"
-			singleton="true" />
+			scope="singleton" />
 
 	<bean 	id="com.ogm.persistance.sql.conditions.SQLBetweenCondition" 
 			class="com.ogm.persistance.sql.conditions.render.BetweenConditionRender"
-			singleton="true" />
+			scope="singleton" />
 	
 	<bean 	id="com.ogm.persistance.sql.conditions.SQLBracket" 
 			class="com.ogm.persistance.sql.conditions.render.BracketConditionRender"
-			singleton="true" />
+			scope="singleton" />
 	
 	<bean 	id="com.ogm.persistance.sql.conditions.SQLJoinCondition" 
 			class="com.ogm.persistance.sql.conditions.render.JoinRender"
-			singleton="true" />		
+			scope="singleton" />		
 
 	<bean 	id="com.ogm.persistance.sql.conditions.SQLNullCondition" 
 			class="com.ogm.persistance.sql.conditions.render.IsNullRender"
-			singleton="true" />
+			scope="singleton" />
 			
 <!-- functions renders -->								
 	
 	<bean 	id="functionRender" 
 			class="com.ogm.persistance.sql.conditions.render.BasicFunctionRender"
-			singleton="true" />
+			scope="singleton" />
 	
 	<bean 	id="patternFunctionRender" 
 			class="com.ogm.persistance.sql.conditions.render.PatternFunctionRender"
-			singleton="true" />
+			scope="singleton" />
 					
 	<alias name="functionRender" alias="UPPER"/>
 	<alias name="functionRender" alias="LOWER"/>	
@@ -44,15 +46,15 @@
 
 	<bean 	id="LIKE" 
 			class="com.ogm.persistance.sql.conditions.render.LikeRender"
-			singleton="true" />	
+			scope="singleton" />	
 			
 	<bean 	id="IN" 
 			class="com.ogm.persistance.sql.conditions.render.InRender"
-			singleton="true" />	
+			scope="singleton" />	
 			
 	<bean 	id="NOT_IN" 
 			class="com.ogm.persistance.sql.conditions.render.InRender"
-			singleton="true" />	
+			scope="singleton" />	
 
 	<alias name="patternFunctionRender" alias="TO_CHAR"/>
 	<alias name="patternFunctionRender" alias="TO_DATE"/>
