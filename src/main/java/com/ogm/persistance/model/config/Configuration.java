@@ -66,10 +66,10 @@ public class Configuration {
 		
 		jfig = JFig.initialize(new JFigLocator(configFile));
 		schema = getValue(CONFIG_SECTION, BD_SCHEMA, null);
-		if (schema == null){
-			//si el esquema es nulo buscamos una configuración del framework;
-			schema = loadSchemaFromFramework();
-		}
+//		if (schema == null){
+//			//si el esquema es nulo buscamos una configuración del framework;
+//			schema = loadSchemaFromFramework();
+//		}
 		
 		if (log.isDebugEnabled()){
 			log.debug("schema " + schema);
@@ -101,20 +101,20 @@ public class Configuration {
 	 * <p>Cargando la configuración si utilizamos Framework Caser.</p>
 	 * @return
 	 */
-	private String loadSchemaFromFramework(){
-		String bbddSection = getValue(CONFIG_SECTION, INDIR_BB_DD_SECTION,null);
-		log.info("Section indirection  [" + bbddSection + "]");
-		String bbddSchema =  getValue(CONFIG_SECTION, INDIR_BB_DD_SCHEMA,null);
-		log.info("Schema indirection  [" + bbddSchema + "]");
-		
-		if (bbddSection==null || bbddSchema==null){
-			return null;
-		}
-		log.info("Cargamos Schema desde configuración Framework Caser");
-
-		IFrameworkConfigWrapper wrapper = (IFrameworkConfigWrapper) bf.getBean(IFrameworkConfigWrapper.class.getSimpleName());
-		return wrapper.getValue(bbddSection, bbddSchema, null);
-	}
+//	private String loadSchemaFromFramework(){
+//		String bbddSection = getValue(CONFIG_SECTION, INDIR_BB_DD_SECTION,null);
+//		log.info("Section indirection  [" + bbddSection + "]");
+//		String bbddSchema =  getValue(CONFIG_SECTION, INDIR_BB_DD_SCHEMA,null);
+//		log.info("Schema indirection  [" + bbddSchema + "]");
+//		
+//		if (bbddSection==null || bbddSchema==null){
+//			return null;
+//		}
+//		log.info("Cargamos Schema desde configuración Framework Caser");
+//
+//		IFrameworkConfigWrapper wrapper = (IFrameworkConfigWrapper) bf.getBean(IFrameworkConfigWrapper.class.getSimpleName());
+//		return wrapper.getValue(bbddSection, bbddSchema, null);
+//	}
 	
 	/**
 	 * <p>Dialecto de la base de datos.</p>
