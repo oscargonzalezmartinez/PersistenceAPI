@@ -28,15 +28,15 @@ import com.ogm.persistance.util.ErrorMessageID;
 
 /**
  * <p>Clase base para los procesadores sql.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  */
 public class SQLProcessorImpl implements SQLProcessor{
 
-	protected static final Log sqlLog =  LogFactory.getLog("es.caser.persistance.SQL");
+	protected static final Log sqlLog =  LogFactory.getLog("com.ogm.persistance.SQL");
 	/**
-	 * Model manager sobre el que realizar la ejecución.
+	 * Model manager sobre el que realizar la ejecuciÃ³n.
 	 */
 	protected ModelManager modelManager = null;
 	
@@ -74,7 +74,7 @@ public class SQLProcessorImpl implements SQLProcessor{
 			long ini = System.currentTimeMillis();
 			for (int index = 0; index < len; index++) {
 				Map rowMap = resultMap.get(index);
-				//TODO dejar esto un poco más presentable
+				//TODO dejar esto un poco mÃ¡ss presentable
 				Object row = null;
 					if (model.hasLazyRelations()){
 						//tiene relaciones, se devuelve un proxy para los lazies
@@ -163,7 +163,7 @@ public class SQLProcessorImpl implements SQLProcessor{
 
 	
 	/**
-	 * Invoca al método setfield sobre el objeto <code>obj</code> con el valor <code>value</code>.
+	 * Invoca al mÃ©todo setfield sobre el objeto <code>obj</code> con el valor <code>value</code>.
 	 * @param obj Objeto.
 	 * @param field Atributo.
 	 * @param value Valor.
@@ -187,7 +187,7 @@ public class SQLProcessorImpl implements SQLProcessor{
 	
 	/**
 	 * Convierte el valor proveniente de base de datos a un objeto java.
-	 * <p>Esta implementación transforma los java.sql.Date y java.sql.Timestamp en java.util.Date.</p>
+	 * <p>Esta implementaciÃ³n transforma los java.sql.Date y java.sql.Timestamp en java.util.Date.</p>
 	 * @param value Valor.
 	 * @return valor proveniente de base de datos a un objeto java
 	 */
@@ -205,7 +205,7 @@ public class SQLProcessorImpl implements SQLProcessor{
 	}
 	/**
 	 * <p>Convierte el valor <code>value</code> en un valor adecuado para base de datos.</p>
-	 * <p>Esta implementación transforma los java.util.Date en java.sql.Timestamp.</p>
+	 * <p>Esta implementaciÃ³n transforma los java.util.Date en java.sql.Timestamp.</p>
 	 * @param value valor a convertir a base de datos.
 	 * @return Objeto convertido para la base de datos.
 	 */
@@ -229,9 +229,9 @@ public class SQLProcessorImpl implements SQLProcessor{
 		if (where!= null && where.getConditions()!=null){
 			Class clazz = null;
 			if (select.getFrom().getTables().size() == 1){
-				//Si tiene sólo una tabla indicamos esta como el from para las condiciones en las que no se ha indicado.
-				//Si hya más de una tabla y la condición no ha indicado a que objeto se refiere dejamos que el 
-				//método falle, ya que no podemos decidir. 
+				//Si tiene sÃ³lo una tabla indicamos esta como el from para las condiciones en las que no se ha indicado.
+				//Si ha mÃ¡s de una tabla y la condiciï¿½n no ha indicado a que objeto se refiere dejamos que el 
+				//mÃ©todo falle, ya que no podemos decidir. 
 				clazz = select.getFrom().getTables().get(0);
 			}
 			processWhere(clazz, where, sql, params);
@@ -275,7 +275,7 @@ public class SQLProcessorImpl implements SQLProcessor{
 				//no tiene clase. Comprobamos si hay una para toda la query.
 				if (clazz == null){
 					sqlLog.error(condition);
-					//La condición para el atributo {0} no tiene indicado la clase a la que pertenece.
+					//La condiciï¿½n para el atributo {0} no tiene indicado la clase a la que pertenece.
 					throw new PersistanceException(ErrorMessageID.PE_00021 , condition.getField());
 				}
 				condition.setClazz(clazz);
@@ -328,8 +328,8 @@ public class SQLProcessorImpl implements SQLProcessor{
 	
 	
 	/**
-	 * <p>Lanza una excepción de código <code>ErrorMessageID.PE_00008</code> si no está
-	 * informada la clave primaria del objeto <code>tiUpdate</code>.</p>
+	 * <p>Lanza una excepciÃ³n de cÃ³digo <code>ErrorMessageID.PE_00008</code> si no estÃ¡
+	 * informada la clave primaria del objeto <code>toUpdate</code>.</p>
 	 * @param model Modelo que representa el objeto a actualizar.
 	 * @param toUpdate Objeto a actualizar
 	 * @param pkf
@@ -347,8 +347,8 @@ public class SQLProcessorImpl implements SQLProcessor{
 	}
 
 	/**
-	 * <p>Añade los valores de clave primaria a <code>where</code>.</p>
-	 * @param where Where al que añadir las restricciones de clave primaria
+	 * <p>AÃ±ade los valores de clave primaria a <code>where</code>.</p>
+	 * @param where Where al que aï¿½adir las restricciones de clave primaria
 	 * @param model Modelo que representa el objeto a actualizar.
 	 * @param toUpdate Objeto a actualizar
 	 * @param pkf
@@ -380,7 +380,7 @@ public class SQLProcessorImpl implements SQLProcessor{
 
 
 	/* (non-Javadoc)
-	 * @see es.caser.persistance.sql.processors.SQLProcessor#setModelManager(es.caser.persistance.model.ModelManager)
+	 * @see com.ogm.persistance.sql.processors.SQLProcessor#setModelManager(es.caser.persistance.model.ModelManager)
 	 */
 	public void setModelManager(ModelManager newModelManager) {
 		this.modelManager = newModelManager;

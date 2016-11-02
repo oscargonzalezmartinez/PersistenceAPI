@@ -17,8 +17,8 @@ import com.ogm.persistance.util.ClassUtil;
 import com.ogm.persistance.util.ErrorMessageID;
 
 /**
- * <p>Implementación de SQLUpdateProcessor.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>ImplementaciÃ³n de SQLUpdateProcessor.</p>
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  *
@@ -32,7 +32,7 @@ public class DefaultUpdateProcessorImpl extends SQLProcessorImpl implements SQLU
 	/**
 	 * <p>Actualiza objeto por primary key</p>.
 	 * @param toUpdate objeto a actualizar.
-	 * @return Si se ha visto afectado algún registro.
+	 * @return Si se ha visto afectado algï¿½n registro.
 	 * 
 	 */
 	public long update(Object toUpdate){
@@ -40,37 +40,21 @@ public class DefaultUpdateProcessorImpl extends SQLProcessorImpl implements SQLU
 		SQLWhere where = new SQLWhere();
 		ModelDefinition model = getModel(toUpdate);
 
-		//recorremos todos los campos que forman la clave primaria para asignarlos al where.
-		//en la mayoría de los casos será un único campo
 		for (Iterator<String> iterator = model.getPrimaryKeysIterator(); iterator.hasNext();) {
 			String pkf = iterator.next();
 			addPK(where,model, toUpdate, pkf);
 		}
 		
-		
-//		if (model.isCompoundPrimaryKey()){
-//			//tenemos una clave compuesta
-//			for (Iterator iterator = model.getPrimaryKeysIterator(); iterator.hasNext();) {
-//				String pkf = (String) iterator.next();
-//				addPK(where,model, toUpdate, pkf);
-//			}
-//		}
-//		else{
-//			String primaryKeyField = model.getPrimaryKeyField();
-//			addPK(where,model, toUpdate, primaryKeyField);
-//		}
-		
-	//	where.add(SQLCondition.getAND(toUpdate.getClass(), primaryKeyField, pkValue));
 
 		return update(toUpdate,where);
 	}
 
 
 	/**
-	 * <p>Devuelve true si el campo está contenido en el where.</p>
+	 * <p>Devuelve true si el campo estÃ¡ contenido en el where.</p>
 	 * @param field Campo
 	 * @param where condiciones
-	 * @return true si el campo está contenido en el where.
+	 * @return true si el campo estÃ¡ contenido en el where.
 	 */
 	private boolean isFieldInWhere(Field field, SQLWhere where){
 		List<SQLCondition> conditions =  where.getConditions();
@@ -89,8 +73,8 @@ public class DefaultUpdateProcessorImpl extends SQLProcessorImpl implements SQLU
 	 * <p>Actualiza la tabla representada por  <code>toUpdate</code> con los datos contenidos en le objeto
 	 * y seleccionando los registro que cumplan las restricciones indicadas en <code>where</code>.
 	 * @param toUpdate Nuevos datos.
-	 * @param where Restricciones de selección de registros a actualizar.
-	 * @return Si se ha visto afectado algún registro.
+	 * @param where Restricciones de selecciÃ³n de registros a actualizar.
+	 * @return Si se ha visto afectado algÃºn registro.
 	 */
 	public long update(Object toUpdate , SQLWhere where){
 		
@@ -123,8 +107,8 @@ public class DefaultUpdateProcessorImpl extends SQLProcessorImpl implements SQLU
 			}
 		}
 		
-		//Si no hay parametros lanzamos excepción
-		//El objeto de tipo {0}, con clave primaria {1} no tiene informado ningún campo, por lo tanto no se va a ejecutar el UPDATE dinámico.
+		//Si no hay parametros lanzamos excepciÃ³n
+		//El objeto de tipo {0}, con clave primaria {1} no tiene informado ningï¿½n campo, por lo tanto no se va a ejecutar el UPDATE dinï¿½mico.
 		if (params.isEmpty()){
 			Object pkValue = ClassUtil.getFieldValueFromObject(toUpdate, model.getPrimaryKeyField());
 			throw new PersistanceException(ErrorMessageID.PE_00009,toUpdate.getClass(),pkValue);
@@ -134,11 +118,9 @@ public class DefaultUpdateProcessorImpl extends SQLProcessorImpl implements SQLU
 		
 		processWhere(toUpdate.getClass(), where, sql, params);	
 
-//		SqlMapOut mapOut = executeUpdate(sql.toString(), params);
-//		long rowsAffected = mapOut.getUpdateOutput().getRowsAffected();
 		long rowsAffected = executeUpdate(sql.toString(), params);
 		if (sqlLog.isDebugEnabled()){
-			sqlLog.debug("Número de filas afectadas : " + rowsAffected);
+			sqlLog.debug("Nï¿½mero de filas afectadas : " + rowsAffected);
 		}
 		return  rowsAffected;
 	}

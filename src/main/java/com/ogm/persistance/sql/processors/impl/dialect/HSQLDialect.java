@@ -1,11 +1,8 @@
 package com.ogm.persistance.sql.processors.impl.dialect;
 
-import java.util.List;
-
 import com.ogm.persistance.model.ModelDefinition;
 import com.ogm.persistance.model.ModelManager;
 import com.ogm.persistance.sql.SQLSelect;
-import com.ogm.persistance.sql.pk.PrimaryKeyGenerator;
 import com.ogm.persistance.sql.pk.SequenceResult;
 import com.ogm.persistance.sql.processors.SQLDialect;
 

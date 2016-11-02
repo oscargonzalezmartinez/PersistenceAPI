@@ -10,8 +10,8 @@ import com.ogm.persistance.sql.SQLWhere;
 import com.ogm.persistance.sql.processors.SQLDeleteProcessor;
 import com.ogm.persistance.util.ClassUtil;
 /**
- * <p>Implementación de SQLDeleteProcessor.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>ImplementaciÃ³n de SQLDeleteProcessor.</p>
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  *
@@ -25,7 +25,7 @@ public class DefaultDeleteProcessorImpl extends SQLProcessorImpl implements SQLD
 		SQLWhere where = new SQLWhere();
 		ModelDefinition model = getModel(toDelete);
 		//recorremos todos los campos que forman la clave primaria para asignarlos al where.
-		//en la mayoría de los casos será un único campo
+		//en la mayorï¿½a de los casos serÃ¡ un Ãºnico campo
 		for (Iterator<String> iterator = model.getPrimaryKeysIterator(); iterator.hasNext();) {
 			String pkf = iterator.next();
 			addPK(where,model, toDelete, pkf);

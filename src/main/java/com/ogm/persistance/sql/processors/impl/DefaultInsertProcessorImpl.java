@@ -17,8 +17,8 @@ import com.ogm.persistance.sql.SQLConstants;
 import com.ogm.persistance.sql.processors.SQLInsertProcessor;
 import com.ogm.persistance.util.ClassUtil;
 /**
- * <p>Implementación de SQLInsertProcessor.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>ImplementaciÃ³n de SQLInsertProcessor.</p>
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  *
@@ -53,10 +53,7 @@ public class DefaultInsertProcessorImpl extends SQLProcessorImpl implements SQLI
 		
 		ModelDefinition model = getModel(toInsert);
 		StringBuilder sql = new StringBuilder(SQLConstants.INSERT_INTO);
-//		sql.append(ModelManager.getInstance().getSchemaName())
-//		.append(SQLConstants.DOT)
-//		.append(model.getTable())
-//		
+
 		sql.append(model.getFullTableName())
 		.append(SQLConstants.OPEN_BRACKET);
 		List<String> list = model.getColumnNames();
@@ -75,8 +72,8 @@ public class DefaultInsertProcessorImpl extends SQLProcessorImpl implements SQLI
 				model.getPrimaryKeyGenerator()!=null ){
 					
 					value = nextPKValue(model,toInsert);
-					//fijamos el valor de la primary key así cuando retornemos el objeto
-					// al método que nos ha invocado lo tendrá disponible
+					//fijamos el valor de la primary key asï¿½ cuando retornemos el objeto
+					// al mÃ©todo que nos ha invocado lo tendrÃ¡ disponible
 					setFieldValueToObject(toInsert, field.getAttribute(), value);
 
 			}
@@ -91,7 +88,7 @@ public class DefaultInsertProcessorImpl extends SQLProcessorImpl implements SQLI
 			ValidationEnum validation = field.getValidation();
 			if (validation!=null){
 				Validator validator =  ValidatorsFactory.getValidator(validation);
-				//si no pasa la validación lanza una excepción
+				//si no pasa la validaciÃ³n lanza una excepciÃ³n
 				validator.validate(toInsert, field);
 			}
 		}

@@ -30,8 +30,8 @@ import com.ogm.persistance.util.ClassUtil;
 import com.ogm.persistance.util.ErrorMessageID;
 
 /**
- * <p>Implementación de SQLSelectProcessor.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>ImplementaciÃ³n de SQLSelectProcessor.</p>
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  *
@@ -40,11 +40,11 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 
 	
 	/**
-	 * Valor por defecto de la primera fila de la paginación.
+	 * Valor por defecto de la primera fila de la paginaciÃ³n.
 	 */
 	private static final Long PAGINATION_FIRST_ROW = Long.valueOf(1);
 	/**
-	 * Valor por defeto para la última fila de la paginación. 
+	 * Valor por defeto para la Ãºltima fila de la paginaciÃ³n. 
 	 */
 	private static final Long PAGINATION_LAST_ROW = Long.valueOf(1000);
 
@@ -53,9 +53,9 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 	}
 
 	/**
-	 * <p>Devuelve el resultado de la ejecución de <code>select</code></p>.
+	 * <p>Devuelve el resultado de la ejecuciÃ³n de <code>select</code></p>.
 	 * @param select Sentencia select a ejecutar.
-	 * @return resultado de la ejecución de <code>select</code>.
+	 * @return resultado de la ejecuciÃ³n de <code>select</code>.
 	 */
 	public List execute(SQLSelect select){
 		
@@ -77,9 +77,9 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 			for (SQLField sqlField : fields) {
 				ModelDefinition model = getModel(sqlField.getClazz());
 				String sqlColumn = model.getAttributeToColumn(sqlField.getField());
-				//Esto solo debería pasar en primeras fases de desarrollo
+				//Esto solo deberï¿½a pasar en primeras fases de desarrollo
 				if (sqlColumn == null){
-					//"El atributo ["+sqlField.getField()+"] de la clase ["+model.getClassName()+"] no está mapeado."
+					//"El atributo ["+sqlField.getField()+"] de la clase ["+model.getClassName()+"] no estï¿½ mapeado."
 					throw new PersistanceException(ErrorMessageID.PE_00013, sqlField.getField(),model.getClassName());
 				}
 				
@@ -129,7 +129,7 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 			}
 			
 			if (from.getTables().size() > 1){
-				//" Hay más de un from. Se han de indicar qué campos se quieren recuperar " + sql
+				//" Hay mï¿½s de un from. Se han de indicar quï¿½ campos se quieren recuperar " + sql
 				throw new PersistanceException(ErrorMessageID.PE_00015,sql);
 			}
 			
@@ -139,9 +139,6 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 		}
 		
 		
-
-			
-	//	sql = new StringBuilder(sql.substring(0, sql.length()-1));
 		//inner join
 		processInnerJoin(select, sql, params);
 		//Procesamos where
@@ -152,7 +149,7 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 		processOrderBy(select.getOrderBy(), sql);
 		//Having
 		processHaving(select.getHaving(),sql, params);
-		//comprobamos la paginación
+		//comprobamos la paginaciï¿½n
 		processPagination(select, sql);
 		
 		//comprobamos el modelo para la salida
@@ -161,7 +158,7 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 	}
 
 	/**
-	 * <p>Ejecuta la query tal como es devuelta por la invocación a <code>select.getSqlQuery()</code>.</p>
+	 * <p>Ejecuta la query tal como es devuelta por la invocaciÃ³n a <code>select.getSqlQuery()</code>.</p>
 	 * @param select Select a ejecutar
 	 * @return resultado de la select
 	 */
@@ -195,7 +192,7 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 		return executeLiteralQuery(select);
 	}
 	/**
-	 * <p>Comprueba que <code>select</code> tiene definido un modelo de salida, si no es así intenta asignarle
+	 * <p>Comprueba que <code>select</code> tiene definido un modelo de salida, si no es asÃ­ intenta asignarle
 	 * uno mediante los from definidos.</p>
 	 * @param select Sentencia select sql
 	 * @param from From de la query
@@ -211,7 +208,7 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 			}
 			
 			if (from.getTables().size() > 1){
-				//" No se ha indicado un modelo de salida de la query, al tener más de una tabla no se puede asignar uno automáticamente: " + sql
+				//" No se ha indicado un modelo de salida de la query, al tener mï¿½s de una tabla no se puede asignar uno automï¿½ticamente: " + sql
 				throw new PersistanceException(ErrorMessageID.PE_00016,sql);
 			}
 			
@@ -223,7 +220,7 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 	private void processPagination(SQLSelect select, StringBuilder sql) {
 		SQLPagination pagination = select.getPagination();
 		if (pagination == null){
-			//comprobamos la paginación global
+			//comprobamos la paginaciï¿½n global
 			pagination = modelManager.getGlobalPagination();
 		}
 		
@@ -251,23 +248,15 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 		}
 		
 		modelManager.getDialect().pagination(sql, min, max);
-//		StringBuilder sb = new StringBuilder ("SELECT *   FROM ( SELECT /*+ FIRST_ROWS(n) */ "); 
-//		sb.append("  a_pagination.*, ROWNUM rnum from ( ");
-//		sb.append(sql);
-//		sb.append(" ) a_pagination  ");
-//		sb.append(" WHERE ROWNUM <= ").append(max);
-//		sb.append(" ) WHERE rnum > ").append(min);
-//		sql.setLength(0);
-//		sql.append(sb);
 	}
 	
 	/**
-	 * <p>Devuelve un único objeto aplicando el filtro indicado en <code>objToFind</code>.</p>
-	 * <p>Si retorna más de un objeto se lanza una <code>DAOException</code> con el código 
+	 * <p>Devuelve un Ãºnico objeto aplicando el filtro indicado en <code>objToFind</code>.</p>
+	 * <p>Si retorna mÃ¡s de un objeto se lanza una <code>DAOException</code> con el cï¿½digo 
 	 * <code>ErrorMessageID.PE_00001</code>.</p>
-	 * <p>Si se quiere obtener más de una instancia utilizar los métodos <code>find</code>.
+	 * <p>Si se quiere obtener mÃ¡s de una instancia utilizar los mï¿½todos <code>find</code>.
 	 * @param objToFind Objeto con el que se realiza el filtro.
-	 * @return único objeto aplicando el filtro indicado en <code>objToFind</code>.
+	 * @return ï¿½nico objeto aplicando el filtro indicado en <code>objToFind</code>.
 	 * 
 	 */
 	public <T> T get(Object objToFind){
@@ -404,7 +393,7 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 	/**
 	 * <p>Devuelve un listado de todos los objetos de la tabla representada por <code>object</code>.
 	 * que cumplan con las restricciones indicadas en <code>where</code></p>.
-	 * <p>Para realizar el filtro se añaden los valores contenidos en <code>object</code>.
+	 * <p>Para realizar el filtro se aï¿½aden los valores contenidos en <code>object</code>.
 	 * </p>
 	 * 
 	 * @param object Objeto de la clase que representa la tabla a buscar.
@@ -418,12 +407,12 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 	}
 	
 	/**
-	 * <p>Devuelve una única fila de la tabla representada por <code>object</code></p>.
-	 * <p>Si retorna más de un objeto se lanza una <code>PersistanceException</code> con el código 
+	 * <p>Devuelve una ï¿½nica fila de la tabla representada por <code>object</code></p>.
+	 * <p>Si retorna mï¿½s de un objeto se lanza una <code>PersistanceException</code> con el cï¿½digo 
 	 * <code>ErrorMessageID.PE_00001</code></p>.
 	 * @param object Objeto de la clase que representa la tabla a buscar.
 	 * @param where Restricciones de la consulta.
-	 * @return una única fila de la tabla representada por <code>object</code>
+	 * @return una ï¿½nica fila de la tabla representada por <code>object</code>
 	 */
 	public Object get(Object object, SQLWhere where){
 		ModelDefinition model = getModel(object);
@@ -516,7 +505,7 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 		List<String> columnsList = model.getColumnNames();
 		Map<String,Field> attSql =  model.getColumnToAttribute();
 		Map<String,Relationship> relations =model.getRelations();
-		//primero se han de procesar las relaciones con inner join y después los campos "normales"
+		//primero se han de procesar las relaciones con inner join y despuï¿½s los campos "normales"
 		List params = new ArrayList();
 		boolean isWhereSet = false;
 		for (String column : columnsList) {
@@ -546,7 +535,7 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 	}
 	
 	/**
-	 * <p>Añade a <code>sqlWhere</code> las condiciones de filtro indicadas en <code>object</code>.</p>
+	 * <p>Aï¿½ade a <code>sqlWhere</code> las condiciones de filtro indicadas en <code>object</code>.</p>
 	 * @param object
 	 * @param model
 	 * @param sqlWhere
@@ -599,7 +588,7 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 		sql.append(sourceModel.getFullTableName())
 		.append(SQLConstants.DOT)
 		.append(sourceModel.getAttributeToColumn(innerJoin.getSourceField()))
-		.append( SQLConstants.EQUAL) //TODO esto debería poder especificarlo el usuario
+		.append( SQLConstants.EQUAL) //TODO esto deberï¿½a poder especificarlo el usuario
 		.append(targetModel.getFullTableName())
 		.append(SQLConstants.DOT)
 		.append(targetModel.getAttributeToColumn(innerJoin.getTargetField()));
@@ -630,7 +619,7 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 		
 		sql.append( SQLConstants.HAVING);
 		sql.append(SQLConstants._1_1);
-		//El render de la condición incluye el AND, por eso poneos 1=1
+		//El render de la condiciï¿½n incluye el AND, por eso poneos 1=1
 		SQLCondition condition = having.getCondition();
 		if (conditionToSQL(condition, sql)){
 			params.add(condition.getValue());
@@ -638,9 +627,6 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 
 	}
 
-	/* (non-Javadoc)
-	 * @see es.caser.po2008.dao.sql.processors.SQLSelectProcessor#getSQL(java.lang.Class)
-	 */
 	public String getSQL(Class clazz) {
 		ModelDefinition model = modelManager.getModel(clazz);
 		//List<String> list = model.getColumnNames();
@@ -686,9 +672,6 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 
 	
 	
-	/* (non-Javadoc)
-	 * @see es.caser.persistance.sql.processors.SQLSelectProcessor#count(java.lang.Class)
-	 */
 	public Long count(Class clazz) {
 		SQLSelect select = new SQLSelect();
 		select.addSelectField(new SQLField(clazz,"*",SQLFunction.COUNT, ScalarResult.SCALAR_RESULT));
@@ -699,9 +682,6 @@ public class DefaultSelectProcessorImpl extends SQLProcessorImpl implements SQLS
 		return result.get(0).getValue();
 	}
 
-	/* (non-Javadoc)
-	 * @see es.caser.persistance.sql.processors.SQLSelectProcessor#count(java.lang.Object)
-	 */
 	public Long count(Object example) {
 		SQLSelect select = new SQLSelect();
 		select.addSelectField(new SQLField(example.getClass(),"*",SQLFunction.COUNT, ScalarResult.SCALAR_RESULT));
