@@ -26,7 +26,7 @@ import com.ogm.persistance.util.ErrorMessageID;
 
 /**
  * <p>Clase encargada de ejecutar las SQLs.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.1 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  *
@@ -58,8 +58,8 @@ public final class SQLExecutor {
 	 * <p>Ejecuta un update.</p>
 	 * @param modelManager Modelmanager sobre el que ejecutar la sentencia.
 	 * @param sql Sentencia a ejecutar.
-	 * @param params parámetros de la sentencia.
-	 * @return número de registros afectados.
+	 * @param params parÃ¡metros de la sentencia.
+	 * @return nÃºmero de registros afectados.
 	 */
 	protected static  int executeUpdate(ModelManager modelManager,String sql, List params){
 
@@ -77,12 +77,12 @@ public final class SQLExecutor {
 			long ini = System.currentTimeMillis();
 			int result = st.executeUpdate();
 			if (sqlLog.isDebugEnabled()){
-				sqlLog.debug("Tiempo ejecución (ms) " + (System.currentTimeMillis() - ini));
+				sqlLog.debug("Tiempo ejecuciÃ³n (ms) " + (System.currentTimeMillis() - ini));
 			}
 			return result;
 		}catch(Exception e){
 			handleException(sql, params, e);
-			//nunca vamos a llegar hasta aquí, ya que handleException siempre lanza una Runtime, 
+			//nunca vamos a llegar hasta aquÃ­, ya que handleException siempre lanza una Runtime, 
 			//pero el compilador no lo sabe y nos obliga a poner un valor de retorno
 			return -1;
 		}finally{
@@ -93,16 +93,16 @@ public final class SQLExecutor {
 
 
 	/**
-	 * <p>Devuelve una conexión a base de datos.</p>
+	 * <p>Devuelve una conexiÃ³n a base de datos.</p>
 	 * @param ds Datasource que proporciona el acceso.
-	 * @return  conexión a base de datos.
+	 * @return  conexiÃ³n a base de datos.
 	 */
 	private static Connection getConnection(DataSource ds) {
 		long inids = System.currentTimeMillis();
 		Connection con = DataSourceUtils.getConnection(ds);
 		long endds = System.currentTimeMillis() - inids;
 		if (endds > MIL){
-			sqlLog.warn("DS_WAIT : El DataSource ha tardado en devolver una conexión " + (endds / MIL) + " s ");
+			sqlLog.warn("DS_WAIT : El DataSource ha tardado en devolver una conexiÃ³n " + (endds / MIL) + " s ");
 		}
 		return con;
 	}
@@ -113,7 +113,7 @@ public final class SQLExecutor {
 	 * <p>Ejecuta la sql.</p>
 	 * @param modelManager Modelmanager sobre el que ejecutar la sentencia.
 	 * @param sql Sentencia a ejecutar.
-	 * @param params parámetros de la sentencia.
+	 * @param params parï¿½metros de la sentencia.
 	 * @return listado de mapas.
 	 */
 	protected static List<Map> execute(ModelManager modelManager,String sql, List params){
@@ -132,7 +132,7 @@ public final class SQLExecutor {
 			long ini = System.currentTimeMillis();
 			rs = st.executeQuery();
 			if (sqlLog.isDebugEnabled()){
-				sqlLog.debug("Tiempo ejecución (ms) " + (System.currentTimeMillis() - ini));
+				sqlLog.debug("Tiempo ejecuciÃ³n (ms) " + (System.currentTimeMillis() - ini));
 			}
 			
 			ResultSetMetaData rsmd = rs.getMetaData();
@@ -158,7 +158,7 @@ public final class SQLExecutor {
 			return result;
 		}catch(Exception e){
 			handleException(sql, params, e);
-			//nunca vamos a llegar hasta aquí, ya que handleException siempre lanza una Runtime, 
+			//nunca vamos a llegar hasta aquÃ­, ya que handleException siempre lanza una Runtime, 
 			//pero el compilador no lo sabe y nos obliga a poner un valor de retorno
 			return null;
 		}finally{
@@ -178,9 +178,9 @@ public final class SQLExecutor {
 
 
 	/**
-	 * <p>Cierra la conexión, el resultset y el prepared statemenr.</p>
+	 * <p>Cierra la conexiï¿½n, el resultset y el prepared statemenr.</p>
 	 * @param ds Data source al que pertenenecen.
-	 * @param con conexión a cerrar.
+	 * @param con conexiï¿½n a cerrar.
 	 * @param st PreparedStatement a cerrar.
 	 * @param rs ResultSet a cerrar.
 	 */
@@ -205,7 +205,7 @@ public final class SQLExecutor {
 
 
 	/**
-	 * <p>Fija los parámetros en el preparedstatement.</p>
+	 * <p>Fija los parÃ¡metros en el preparedstatement.</p>
 	 * @param params
 	 * @param st
 	 * @throws SQLException
@@ -229,7 +229,7 @@ public final class SQLExecutor {
 			}
 			}catch(SQLException e){
 				if (sb!=null){
-					sqlLog.error("Índice ["+index+"]. Params: "+sb,e);
+					sqlLog.error("ï¿½ndice ["+index+"]. Params: "+sb,e);
 				}
 				throw e;
 			}
@@ -239,11 +239,11 @@ public final class SQLExecutor {
 	
 
 	/**
-	 * <p>Trata la excepción.</p>
+	 * <p>Trata la excepciÃ³n.</p>
 	 * @param sql Sql que ha provocado el error
-	 * @param params parámetros de la sql.
-	 * @param e excepción
-	 * @throws PersistanceException de código ErrorMessageID.PE_00000
+	 * @param params parï¿½metros de la sql.
+	 * @param e excepciï¿½n
+	 * @throws PersistanceException de cï¿½digo ErrorMessageID.PE_00000
 	 */
 	private static void handleException(String sql, List params, Exception e) throws PersistanceException{
 		String logCode = getLogCode();
@@ -253,8 +253,8 @@ public final class SQLExecutor {
 	}
 	
 	/**
-	 * <p>código de log..</p>
-	 * @return código de log.
+	 * <p>cÃ³digo de log..</p>
+	 * @return cÃ³digo de log.
 	 */
 	private static String getLogCode(){
 		return System.currentTimeMillis() + "#"+ Math.round(Math.random()*MIL);
