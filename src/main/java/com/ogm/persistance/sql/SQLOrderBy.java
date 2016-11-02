@@ -5,17 +5,17 @@ import java.util.List;
 
 /**
  * <p>Esta clase representa la clausula <b>order by</b>.</p>
- * @author Oscar Gonz醠ez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar Gonz谩lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  */
 public class SQLOrderBy {
 	/**
-	 * Ordenaci髇 ascendente.
+	 * Ordenaci贸n ascendente.
 	 */
 	public static final String ASC = " ASC ";
 	/**
-	 * Ordenaci髇 descendente.
+	 * Ordenaci贸n descendente.
 	 */
 	public static final String DESC = " DESC ";
 	/**
@@ -32,8 +32,8 @@ public class SQLOrderBy {
 	public SQLOrderBy(){}
 	
 	/**
-	 * <p>A馻de un nuevo campo de ordenaci髇.</p>
-	 * @param newSQLField Campo a a馻dir.
+	 * <p>A帽ade un nuevo campo de ordenaci贸n.</p>
+	 * @param newSQLField Campo a a锟絘dir.
 	 * @return this.
 	 */
 	public SQLOrderBy addField(SQLField newSQLField){
@@ -43,7 +43,7 @@ public class SQLOrderBy {
 	
 	
 	/**
-	 * <p>A馻de un nuevo campo de ordenaci髇.</p>
+	 * <p>A帽ade un nuevo campo de ordenaci贸n锟絥.</p>
 	 * @param clazz Clase del objeto
 	 * @param field Campo por el que ordenar
 	 * @return this.
@@ -54,7 +54,7 @@ public class SQLOrderBy {
 	}
 	
 	/**
-	 * <p>A馻de un nuevo campo de ordenaci髇.</p>
+	 * <p>A帽ade un nuevo campo de ordenaci贸n.</p>
 	 * @param object Objeto
 	 * @param field Campo
 	 * @return this.
@@ -64,7 +64,7 @@ public class SQLOrderBy {
 	}
 	
 	/**
-	 * <p>Ordenaci髇 ascendente.</p>
+	 * <p>Ordenaci贸n ascendente.</p>
 	 * @return this.
 	 */
 	public SQLOrderBy setAsc(){
@@ -73,7 +73,7 @@ public class SQLOrderBy {
 	}
 	
 	/**
-	 * <p>Ordenaci髇 descendente.</p>
+	 * <p>Ordenaci贸n descendente.</p>
 	 * @return this.
 	 */
 	public SQLOrderBy setDesc(){
@@ -82,16 +82,16 @@ public class SQLOrderBy {
 	}
 
 	/**
-	 * <p>Devuelve el tipo de ordenaci髇.</p>
-	 * @return Tipo de ordenaci髇.
+	 * <p>Devuelve el tipo de ordenaci贸n.</p>
+	 * @return Tipo de ordenaci贸n.
 	 */
 	public String getOrder() {
 		return order;
 	}
 
 	/**
-	 * <p>Devuelve los campos por los que realizar la ordenaci髇.</p>
-	 * @return   campos por los que realizar la ordenaci髇.
+	 * <p>Devuelve los campos por los que realizar la ordenaci贸n.</p>
+	 * @return   campos por los que realizar la ordenaci贸n.
 	 */
 	public List<SQLField> getFields() {
 		return fields;

@@ -7,12 +7,12 @@ import com.ogm.persistance.sql.SQLConstants;
 import com.ogm.persistance.sql.util.RenderFactory;
 
 /**
- * <p>Genera una condiciÛn <code>BETWEEN</code>.
+ * <p>Genera una condici√≥n <code>BETWEEN</code>.
  * <p>El sql generado es:<br/>
  * Fecha BETWEEN field1 AND field2
- * <p>Si no se indica fecha se utilizar· SYSDATE</p>
- * <p>Esta versiÛn sÛlo soporta fechas</p>
- * @author Oscar Gonz·lez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Si no se indica fecha se utilizar√° SYSDATE</p>
+ * <p>Esta versi√≥n s√≥lo soporta fechas</p>
+ * @author Oscar Gonz√°lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  */

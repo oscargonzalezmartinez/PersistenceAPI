@@ -16,9 +16,9 @@ import com.ogm.persistance.util.ErrorMessageID;
 
 
 /**
- * <p>Clase encargada de realizar la transformación entre Object query y sql.</p>
- * <p>Esta implementación se basa en <a href="http://www.antlr.org/">ANTLR 3</a>.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Clase encargada de realizar la transformaciÃ³n entre Object query y sql.</p>
+ * <p>Esta implementaciÃ³n se basa en <a href="http://www.antlr.org/">ANTLR 3</a>.</p>
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 10 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  * @see <a>http://www.antlr.org/</a>
@@ -36,9 +36,9 @@ public final class ObjectQueryToSQL {
 		
 	}
 	/**
-	 * <p>Transforma la objectsql a una named query en el ámbito definido por <code>modelManager</code>.</p>
+	 * <p>Transforma la objectsql a una named query en el Ã¡mbito definido por <code>modelManager</code>.</p>
 	 * @param objectQuery object sql a transformar en sql pura.
-	 * @param modelManager definición del modelo
+	 * @param modelManager definiciÃ³n del modelo
 	 * @return NamedQuery.
 	 */
 	public static NamedQuery process(String objectQuery, ModelManager modelManager) {

@@ -6,23 +6,23 @@ import com.ogm.persistance.sql.conditions.render.IConditionRender;
 import com.ogm.persistance.sql.util.RenderFactory;
 
 /**
- * <p>Clase que permite generar condiciones SQL b醩icas.</p>
- * @author Oscar Gonz醠ez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Clase que permite generar condiciones SQL b谩sicas.</p>
+ * @author Oscar Gonz谩lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.1 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  */
 public class SQLCondition {
 	
 	/**
-	 * Clase sobre la que aplicar la condici髇.
+	 * Clase sobre la que aplicar la condici贸n.
 	 */
 	protected Class clazz = null;
 	/**
-	 * Campo sobre el que aplicar la condici髇.
+	 * Campo sobre el que aplicar la condici贸n.
 	 */
 	protected String field = null;
 	/**
-	 * Valor del la condici髇.
+	 * Valor del la condici锟絥.
 	 */
 	protected Object value = null;
 	/**
@@ -30,7 +30,7 @@ public class SQLCondition {
 	 */
 	protected String operator =null;
 	/**
-	 * Expresi髇.
+	 * Expresi锟絥.
 	 */
 	protected SQLExpresion expresion = SQLExpresion.EQUALS;
 	/**
@@ -38,7 +38,7 @@ public class SQLCondition {
 	 */
 	protected SQLBracket bracket = null; 
 	/**
-	 * Funci髇 a aplicar sobre el campo.
+	 * Funci贸n a aplicar sobre el campo.
 	 */
 	protected SQLFunction function = null;
 	/**
@@ -48,7 +48,7 @@ public class SQLCondition {
 	
 	/**
 	 * <p> AND <code>newField</code> = <code>newValue</code>.</p>
-	 * @param newField Atributo de la clase al que se quiere a馻dir una condici髇.
+	 * @param newField Atributo de la clase al que se quiere a帽adir una condici贸n.
 	 * @param newValue Valor que ha de cumplir.
 	 * @return  AND <code>newField</code> = <code>newValue</code>.
 	 */
@@ -58,7 +58,7 @@ public class SQLCondition {
 
 	/**
 	 * <p> AND <code>newField</code> = <code>newValue</code>.</p>
-	 * @param newField Atributo de la clase al que se quiere a馻dir una condici髇.
+	 * @param newField Atributo de la clase al que se quiere a帽adir una condici贸n.
 	 * @param newValue Valor que ha de cumplir.
 	 * @return  AND <code>newField</code> = <code>newValue</code>.
 	 */
@@ -137,11 +137,11 @@ public class SQLCondition {
 	public SQLCondition(){}
 	
 	/**
-	 * <p>Crea un nueva condici髇.</>
+	 * <p>Crea un nueva condici贸n.</>
 	 * @param newClass Clase del modelo.
 	 * @param newField Campo.
 	 * @param newValue Valor del campo.
-	 * @param newExpresion expresi髇 a aplicar en la condici髇.
+	 * @param newExpresion expresi贸n a aplicar en la condici贸n.
 	 */
 	public SQLCondition(Class newClass, String newField, Object newValue, SQLExpresion newExpresion) {
 		super();
@@ -152,12 +152,12 @@ public class SQLCondition {
 	}
 	
 	/**
-	 * <p>Crea un nueva condici髇.</>
-	 * @param newClass Clase del modelo.
+	 * <p>Crea un nueva condici贸n.</>
+	 * @param newClass condici贸n del modelo.
 	 * @param newField Campo.
 	 * @param newValue Valor del campo.
 	 * @param newOperator operador.
-	 * @param newFunction Funci髇.
+	 * @param newFunction Funci贸n.
 	 */
 	public SQLCondition(Class newClass, String newField, Object newValue, SQLExpresion newExpresion, SQLFunction newFunction) {
 		super();
@@ -166,17 +166,17 @@ public class SQLCondition {
 		this.value = newValue;
 		this.expresion = newExpresion;
 		function = newFunction;
-		//al tener funci髇 cogemos el render de la funci髇
+		//al tener funci锟絥 cogemos el render de la funci锟絥
 		render = function.getRender();
 	}
 	
 	/**
-	 * <p>Crea un nueva condici髇.</>
+	 * <p>Crea un nueva condici贸n.</>
 	 * @param newClass Clase del modelo.
 	 * @param newField Campo.
 	 * @param newValue Valor del campo.
 	 * @param newOperator operador.
-	 * @param newExpresion expresi髇 a aplicar en la condici髇.
+	 * @param newExpresion expresi贸n a aplicar en la condici贸n.
 	 */
 	public SQLCondition(Class newClass,String newField, Object newValue,String newOperator, SQLExpresion newExpresion) {
 		this(newClass,newField,newValue,newExpresion);
@@ -184,32 +184,32 @@ public class SQLCondition {
 	}
 
 	/**
-	 * <p>Crea un nueva condci髇.</>
+	 * <p>Crea un nueva condici贸n.</>
 	 * @param newClass Clase del modelo.
 	 * @param newField Campo.
 	 * @param newValue Valor del campo.
 	 * @param newOperator operador.
-	 * @param newExpresion expresi髇 a aplicar en la condici髇.
-	 * @param newFunction Funci髇.
+	 * @param newExpresion expresi贸n a aplicar en la condici贸n.
+	 * @param newFunction Funci贸n.
 	 */
 	public SQLCondition(Class newClass,String newField, Object newValue,String newOperator, SQLExpresion newExpresion, SQLFunction newFunction) {
 		this(newClass,newField,newValue,newExpresion);
 		operator = newOperator;
 		function = newFunction;
-		//al tener funci髇 cogemos el render de la funci髇
+		//al tener funci锟絥 cogemos el render de la funci锟絥
 		render = function.getRender();
 	}
 	
 	/**
-	 * <p>Devuelve la expresi髇 a aplicar en la condici髇.</p>
-	 * @return xpresi髇 a aplicar en la condici髇.
+	 * <p>Devuelve la expresi锟絥 a aplicar en la condici贸n.</p>
+	 * @return xpresi锟絥 a aplicar en la condici贸n.
 	 */
 	public SQLExpresion getExpresion() {
 		return expresion;
 	}
 	/**
-	 * <p>Establece la expresi髇 a aplicar en la condici髇.</p>
-	 * @param newExpresion  expresi髇 a aplicar en la condici髇.
+	 * <p>Establece la expresi锟絥 a aplicar en la condici贸n.</p>
+	 * @param newExpresion  expresi锟絥 a aplicar en la condici贸n.
 	 */
 	public void setExpresion(SQLExpresion newExpresion) {
 		this.expresion = newExpresion;
@@ -260,16 +260,16 @@ public class SQLCondition {
 	}
 
 	/**
-	 * <p>Devuelve la clase del modelo sobre el que se aplica la condici髇.</p>
-	 * @return Clase del modelo sobre el que se aplica la condici髇.
+	 * <p>Devuelve la clase del modelo sobre el que se aplica la condici贸n.</p>
+	 * @return Clase del modelo sobre el que se aplica la condici贸n.
 	 */
 	public Class getClazz() {
 		return clazz;
 	}
 
 	/**
-	 * <p>Establece la clase del modelo sobre el que se aplica la condici髇..</p>
-	 * @param newClazz Clase del modelo sobre el que se aplica la condici髇.
+	 * <p>Establece la clase del modelo sobre el que se aplica la condici贸n.</p>
+	 * @param newClazz Clase del modelo sobre el que se aplica la condici贸n.
 	 */
 	public void setClazz(Class newClazz) {
 		this.clazz = newClazz;

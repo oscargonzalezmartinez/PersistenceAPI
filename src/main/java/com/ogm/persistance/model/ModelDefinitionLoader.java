@@ -24,7 +24,7 @@ import com.ogm.persistance.util.ErrorMessageID;
 /**
  * <p>Clase encargada de generar un modelo para una clase anotada.</p>
  * 
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  *
  */
@@ -43,10 +43,10 @@ public class ModelDefinitionLoader {
 			DBTable dbTable = (DBTable) clazz.getAnnotation(DBTable.class);
 			//Esto es un error MUY GRAVE que solo se dan en primeras fases de desarrollo
 			if (dbTable == null){
-				//El fichero de configuración [{0}] indica el uso de clases anotadas, pero el modelo definido en [{1}] 
+				//El fichero de configuraciÃ³n [{0}] indica el uso de clases anotadas, pero el modelo definido en [{1}] 
 				// no es una clase anotada.
 				//throw new ModelPersistanceException(ErrorMessageID.PE_00010, "", configurationFileName);
-				log.warn("La clase " + className+ " no tiene definida la anotación DBTable. No podrá ser persistida.");
+				log.warn("La clase " + className+ " no tiene definida la anotaciï¿½n DBTable. No podrï¿½ ser persistida.");
 			}
 			return loadFromAnnotatedClass(clazz);
 
@@ -84,7 +84,7 @@ public class ModelDefinitionLoader {
 			md.setKeyGenerator(keyGenerator.name());
 			if (KeyGeneratorEnum.SEQUENCE.equals(keyGenerator)){
 				DBSequence sequence = (DBSequence) clazz.getAnnotation(DBSequence.class);
-				//Esto sólo debería pasar en desarrollo
+				//Esto sÃ³lo deberÃ­a pasar en desarrollo
 				if (sequence == null){
 					throw new ModelPersistanceException(ErrorMessageID.PE_00011,
 							md.getClassName(),
@@ -163,10 +163,10 @@ public class ModelDefinitionLoader {
 
 			//Esto es un error MUY GRAVE que solo se dan en primeras fases de desarrollo
 			if (mapping.getTable() == null){
-				//El fichero de configuración [{0}] indica el uso de clases anotadas, pero el modelo definido en [{1}] 
+				//El fichero de configuraciÃ³n [{0}] indica el uso de clases anotadas, pero el modelo definido en [{1}] 
 				// no es una clase anotada.
 				//throw new ModelPersistanceException(ErrorMessageID.PE_00010, "", configurationFileName);
-				log.warn("El mapeo " + fileName + " no tiene definida la tabla. No podrá ser persistida.");
+				log.warn("El mapeo " + fileName + " no tiene definida la tabla. No podrÃ¡ ser persistida.");
 			}
 			return loadFromMappingFile(mapping);
 		
@@ -192,7 +192,7 @@ public class ModelDefinitionLoader {
 			md.setKeyGenerator(keyGeneratorXml.getType().toString().toUpperCase());
 			if (KeyGeneratorEnum.SEQUENCE.name().equals(md.getKeyGenerator())){
 				String sequence = keyGeneratorXml.getName().toString();
-				//Esto sólo debería pasar en desarrollo
+				//Esto sÃ³lo deberÃ­a pasar en desarrollo
 				if (sequence == null){
 					throw new ModelPersistanceException(ErrorMessageID.PE_00011,
 							md.getClassName(),

@@ -14,8 +14,8 @@ import com.ogm.persistance.model.ModelManager;
 import com.ogm.persistance.model.NamedQuery;
 
 /**
- * <p>Clase de apoyo al procesado de la gramática.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Clase de apoyo al procesado de la gramï¿½tica.</p>
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 10 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  *
@@ -141,9 +141,9 @@ public class GrammarUtil {
 		List<String> tables = new ArrayList<String>();
 		for (Iterator<ModelDefinition> it = models.values().iterator(); it
 				.hasNext();) {
-			//comprobamos si está fullqualified
+			//comprobamos si estï¿½ fullqualified
 			if (lastOp!=null && lastOp.size() > 2){
-					//normalemnte estamos así tabla.nombre (procesando nombre)
+					//normalemnte estamos asï¿½ tabla.nombre (procesando nombre)
 					Operation op = lastOp.get(lastOp.size() - 2);
 					if (op.type == OperationType.TABLE){
 						String sqlName = getModel(op.getPayLoad()).getAttributeToColumn(fieldName);

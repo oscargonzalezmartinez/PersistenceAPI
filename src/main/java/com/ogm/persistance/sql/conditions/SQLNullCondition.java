@@ -5,8 +5,8 @@ import com.ogm.persistance.sql.SQLExpresion;
 import com.ogm.persistance.sql.util.RenderFactory;
 
 /**
- * <p>CondiciÛn para <code>IS NULL</code> e <code>IS NOT NULL</code> </p>
- * @author Oscar Gonz·lez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Condici√≥n para <code>IS NULL</code> e <code>IS NOT NULL</code> </p>
+ * @author Oscar Gonz√°lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  */

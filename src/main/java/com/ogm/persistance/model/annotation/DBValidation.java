@@ -9,8 +9,8 @@ import java.lang.annotation.Target;
 import com.ogm.persistance.model.ValidationEnum;
 
 /**
- * <p>Anotación para indicar una validación ha realizar sobre un campo, en la inserción o actualización.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>AnotaciÃ³n para indicar una validaciÃ³n ha realizar sobre un campo, en la inserciï¿½n o actualizaciï¿½n.</p>
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  *
  */

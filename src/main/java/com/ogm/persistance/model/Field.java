@@ -1,7 +1,7 @@
 package com.ogm.persistance.model;
 /**
  * <p>Objeto que representa un atributo.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  */
 public class Field {
@@ -14,7 +14,7 @@ public class Field {
 	 */
 	private String column = null;
 	/**
-	 * <p>Indica si el campo será persistido.</p>
+	 * <p>Indica si el campo serï¿½ persistido.</p>
 	 */
 	private Boolean mTransient = null;
 	/**
@@ -26,7 +26,7 @@ public class Field {
 	 */
 	private ValidationEnum validation = null;
 	/**
-	 * <p>Información necesaria para un validador.</p>
+	 * <p>InformaciÃ³n necesaria para un validador.</p>
 	 */
 	private String validationData = null;
 	

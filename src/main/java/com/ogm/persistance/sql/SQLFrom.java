@@ -6,9 +6,9 @@ import java.util.List;
 import com.ogm.persistance.model.ModelDefinition;
 
 /**
- * <p>Esta clase representa la clausula <code>FROM</code> de una sql. Permite aÒadir
+ * <p>Esta clase representa la clausula <code>FROM</code> de una sql. Permite a√±adir
  * tantos objetos java del modelo como se quiera.</p>
- * @author Oscar Gonz·lez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar Gonz√°lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  */

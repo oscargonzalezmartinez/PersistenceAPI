@@ -10,10 +10,10 @@ import com.ogm.persistance.exceptions.ModelPersistanceException;
 import com.ogm.persistance.sql.pk.PrimaryKeyGenerator;
 
 /**
- * <p>Definición de un modelo de clase que representa una tabla de la BBDD.</p>
- * <p>Esta clase proporciona métodos para convertir nombre de atributos de la clase en 
+ * <p>DefiniciÃ³n de un modelo de clase que representa una tabla de la BBDD.</p>
+ * <p>Esta clase proporciona mÃ©todos para convertir nombre de atributos de la clase en 
  * nombre de columnas de la BBDD y viceversa.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  *
@@ -26,7 +26,7 @@ public class ModelDefinition {
 	 */
 	private static final String ASTERISK = "*";
 	/**
-	 * Clase java que repressenta este modelo.
+	 * Clase java que representa este modelo.
 	 */
 	private String className = null;
 	/**
@@ -47,7 +47,7 @@ public class ModelDefinition {
 	 */
 	private String keyGenerator = null;
 	/**
-	 * Nombre de la secuencia de BBDD para la inserción de nuevos objetos.
+	 * Nombre de la secuencia de BBDD para la inserciÃ³n de nuevos objetos.
 	 */
 	private String sequence = null;
 	
@@ -94,7 +94,7 @@ public class ModelDefinition {
 	private PrimaryKeyGenerator primaryKeyGenerator = null;
 	
 	/**
-	 * Campos que componen una clave primaria. solo utilizado si hay más de un campo
+	 * Campos que componen una clave primaria. solo utilizado si hay mÃ¡s de un campo
 	 */
 	private Map<String,String> primaryKeys = null;
 	
@@ -120,8 +120,8 @@ public class ModelDefinition {
 
 	
 	/**
-	 * <p>Añade un nuevo campo al modelo.</p>
-	 * @param newField campo a añadir.
+	 * <p>Aï¿½ade un nuevo campo al modelo.</p>
+	 * @param newField campo a aï¿½adir.
 	 */
 	public void addField(Field newField){
 		attributeToColumn.put(newField.getAttribute(), newField);
@@ -141,7 +141,7 @@ public class ModelDefinition {
 		}
 		Field field = attributeToColumn.get(attribute);
 		if (field == null){
-			throw new ModelPersistanceException("El atributo ["+attribute+"] de la clase ["+className+"] no está mapeado.");
+			throw new ModelPersistanceException("El atributo ["+attribute+"] de la clase ["+className+"] no estÃ¡ mapeado.");
 		}
 		return field.getColumn();
 	}
@@ -194,7 +194,7 @@ public class ModelDefinition {
 	public String getColumnToAttribute(String column) {
 		Field field = columnToAttribute.get(column);
 		if (field == null){
-			throw new ModelPersistanceException("la columna ["+column+"] no está mapeado para la clase clase ["+className+"] .");
+			throw new ModelPersistanceException("la columna ["+column+"] no estï¿½ mapeado para la clase clase ["+className+"] .");
 		}
 		
 		return field.getAttribute();
@@ -306,11 +306,11 @@ public class ModelDefinition {
 	}
 	
 	/**
-	 * <p>Devuelve la definición del modelo de la clase <code>clazz</code>.</p>
-	 * <p>Este método se utiliza para clases que no mapean a ninguna tabla, pero que se quieren utilizar como
+	 * <p>Devuelve la definiciï¿½n del modelo de la clase <code>clazz</code>.</p>
+	 * <p>Este mï¿½todo se utiliza para clases que no mapean a ninguna tabla, pero que se quieren utilizar como
 	 * resultado de alguna sentencia.</p>
 	 * @param clazz Clase de la que obtenr el modelo.
-	 * @return definición del modelo de la clase <code>clazz</code>.
+	 * @return definiciï¿½n del modelo de la clase <code>clazz</code>.
 	 */
 	public static ModelDefinition newModel(Class clazz){
 		return ModelManager.loadFromAnnotatedClass(clazz);
@@ -391,7 +391,7 @@ public class ModelDefinition {
 	 * @return
 	 */
 	public boolean isCompoundPrimaryKey(){
-		//sólo es clave compuesta si tiene más de un campo
+		//sÃ³lo es clave compuesta si tiene mÃ¡s de un campo
 		return primaryKeys!=null && primaryKeys.size() > 1; 
 	}
 	

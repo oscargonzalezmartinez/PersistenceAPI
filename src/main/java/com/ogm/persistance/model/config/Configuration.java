@@ -18,7 +18,7 @@ import com.ogm.persistance.sql.processors.SQLUpdateProcessor;
 import com.ogm.persistance.util.ClassUtil;
 
 /**
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  *
  */
@@ -37,17 +37,6 @@ public class Configuration {
 	private static final String QUERIES = "queries";
 	private static Log log = LogFactory.getLog(Configuration.class);
 	private static final String BD_SCHEMA = "bd.schema";
-	//Variables de indirección para acceder a la configuración de bbdd
-	//solo se usan si detrá está el FrameworkCaser
-	/**
-	 * <p>Entrada de configuración que indica la sección de bbdd en la configuración framework de la aplicación.</p>
-	 */
-	private static final String INDIR_BB_DD_SECTION = "bdsection";
-	/**
-	 * <p>Entrada de configuración la variable que contiene el schema en la configuración framework de la aplicación.</p>
-	 */
-	private static final String INDIR_BB_DD_SCHEMA = "bdsschema";
-
 
 	
 	private String schema = null;
@@ -61,15 +50,11 @@ public class Configuration {
 		super();
 		configFile = newConfigFile;
 		if (log.isInfoEnabled()){
-			log.info("Cargando configuración de " + configFile);
+			log.info("Cargando configuraciÃ³n de " + configFile);
 		}
 		
 		jfig = JFig.initialize(new JFigLocator(configFile));
 		schema = getValue(CONFIG_SECTION, BD_SCHEMA, null);
-//		if (schema == null){
-//			//si el esquema es nulo buscamos una configuración del framework;
-//			schema = loadSchemaFromFramework();
-//		}
 		
 		if (log.isDebugEnabled()){
 			log.debug("schema " + schema);
@@ -84,62 +69,53 @@ public class Configuration {
 	private Object loadProcessors(String processorType) {
 		//cargamos los procesadores 
 		String clazzName = jfig.getValue(PROCESSORS, processorType,null);
-		log.info("Cargando processor " + processorType +" : " + clazzName);
+		if (log.isInfoEnabled()){
+			log.info("Cargando processor " + processorType +" : " + clazzName);
+		}
 		if (clazzName!=null){
 			//definido por el usuario
 			return ClassUtil.newInstance(clazzName);
 		}
 	
 		Object object = bf.getBean(processorType);
-
-		log.info("Cargando valor por defecto " + object.getClass().getName());
+		if (log.isInfoEnabled()){
+			log.info("Cargando valor por defecto " + object.getClass().getName());
+		}
 
 		return object;
 	}
 	
-	/**
-	 * <p>Cargando la configuración si utilizamos Framework Caser.</p>
-	 * @return
-	 */
-//	private String loadSchemaFromFramework(){
-//		String bbddSection = getValue(CONFIG_SECTION, INDIR_BB_DD_SECTION,null);
-//		log.info("Section indirection  [" + bbddSection + "]");
-//		String bbddSchema =  getValue(CONFIG_SECTION, INDIR_BB_DD_SCHEMA,null);
-//		log.info("Schema indirection  [" + bbddSchema + "]");
-//		
-//		if (bbddSection==null || bbddSchema==null){
-//			return null;
-//		}
-//		log.info("Cargamos Schema desde configuración Framework Caser");
-//
-//		IFrameworkConfigWrapper wrapper = (IFrameworkConfigWrapper) bf.getBean(IFrameworkConfigWrapper.class.getSimpleName());
-//		return wrapper.getValue(bbddSection, bbddSchema, null);
-//	}
-	
+
 	/**
 	 * <p>Dialecto de la base de datos.</p>
 	 * @return Dialecto de la base de datos
 	 */
 	public SQLDialect getDialect(){
 		String dialect = getValue(CONFIG_SECTION, DIALECT, DEFAULT_DIALECT);
-		log.info("Dialecto a utilizar " + dialect);
+		if (log.isInfoEnabled()){
+			log.info("Dialecto a utilizar " + dialect);
+		}
 
 		SQLDialect dialectImpl = (SQLDialect) bf.getBean(dialect);
-		log.debug("Clase que implementa el dialecto " + dialectImpl.getClass().getName());
+		if (log.isInfoEnabled()){
+			log.debug("Clase que implementa el dialecto " + dialectImpl.getClass().getName());
+		}
 		return dialectImpl;
 		
 	}
 	
 	/**
-	 * <p>Devuelve la paginación indicada en la configuración.</p>
+	 * <p>Devuelve la paginaciÃ³n indicada en la configuraciÃ³n.</p>
 	 * @return
 	 */
 	public SQLPagination getPagination(){
 		String paginacion = getValue(CONFIG_SECTION, SQL_PAGINATION_MANDATORY,Boolean.FALSE.toString());
 		if (Boolean.parseBoolean(paginacion)){
-			//hay paginación definida por el usuario
+			//hay paginaciÃ³n definida por el usuario
 			String maxValue = getValue(CONFIG_SECTION, SQL_PAGINATION_MAX,"2000");
-			log.info("Paginación obligatoria MAX [" +maxValue + "]");
+			if (log.isInfoEnabled()){
+				log.info("PaginaciÃ³n obligatoria MAX [" +maxValue + "]");
+			}
 			return new SQLPagination(1L, Long.valueOf(maxValue));
 		}
 		
@@ -187,11 +163,11 @@ public class Configuration {
 	}
 	
 	/**
-	 * <p>Devuelve el valor de configuración.</p>
-	 * @param section sección de la configuración.
-	 * @param key clave dentro de la sección.
+	 * <p>Devuelve el valor de configuraciÃ³n.</p>
+	 * @param section secciÃ³n de la configuraciÃ³n.
+	 * @param key clave dentro de la secciÃ³n.
 	 * @param defaultValue valor devuelto si no se encuentra.
-	 * @return valor de configuración.
+	 * @return valor de configuraciÃ³n.
 	 */
 	public String getValue(String section, String key, String defaultValue){
 		return jfig.getValue(section, key,defaultValue);

@@ -3,8 +3,8 @@ package com.ogm.persistance.sql;
 
 /**
  * <p>Campo de una sql.</p>
- * <p>Contiene la definición del modelo de un campo de un objeto java determinado.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Contiene la definiciÃ³n del modelo de un campo de un objeto java determinado.</p>
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  */
@@ -17,11 +17,11 @@ public class SQLField{
 	 */
 	private String field = null;
 	/**
-	 * Sinónimo sql que le asigna el usario. No confundir con nombre de campo.
+	 * SinÃ³nimo sql que le asigna el usario. No confundir con nombre de campo.
 	 */
 	private String sqlSynonym = null;
 	/**
-	 * Función a aplicar sobre el campo
+	 * Funciï¿½n a aplicar sobre el campo
 	 */
 	protected SQLFunction function = null;
 	/**

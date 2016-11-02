@@ -8,9 +8,9 @@ import java.lang.annotation.Target;
 
 import com.ogm.persistance.model.KeyGeneratorEnum;
 /**
- * <p>AnotaciÛn usada en la persistencia de objetos.
- * <p>Define la tabla a la que se mapea el objeto asÌ como la clave primaria y su enerador de claves, si existe. 
- * @author Oscar Gonz·lez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Anotaci√≥n usada en la persistencia de objetos.
+ * <p>Define la tabla a la que se mapea el objeto as√≠ como la clave primaria y su enerador de claves, si existe. 
+ * @author Oscar Gonz√°lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  *
  */

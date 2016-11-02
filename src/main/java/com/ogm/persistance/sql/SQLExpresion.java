@@ -3,7 +3,7 @@ package com.ogm.persistance.sql;
 /**
  * <p>Representa las expresiones de las condiciones sql, es decir, 
  * =, <, >, <=, >=, IS NULL e IS NOT NULL </p>
- * @author Oscar Gonz·lez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar Gonz√°lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  */

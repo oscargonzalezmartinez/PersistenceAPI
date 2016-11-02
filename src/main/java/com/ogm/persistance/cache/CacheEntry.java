@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 /**
  * <p>Elemento que representa una entrada en al cache.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  */
 public class CacheEntry {
 	/**
-	 * Instante de creación del objeto en la caché.
+	 * Instante de creaciï¿½n del objeto en la cachï¿½.
 	 */
 	private long creationTime = 0;
 	/**
@@ -17,7 +17,7 @@ public class CacheEntry {
 	 */
 	private Serializable key = null;
 	/**
-	 * Información a almacenar.
+	 * Informaciï¿½n a almacenar.
 	 */
 	private Object payload = null;
 	
@@ -39,8 +39,8 @@ public class CacheEntry {
 	}
 
 	/**
-	 * <p>Devuelve el instante de creación del objeto en la caché.</p>
-	 * @return instante de creación del objeto en la caché.
+	 * <p>Devuelve el instante de creaciÃ³n del objeto en la cachÃ©.</p>
+	 * @return instante de creaciÃ³n del objeto en la cachÃ©.
 	 */
 	public long getCreationTime() {
 		return creationTime;
@@ -71,8 +71,8 @@ public class CacheEntry {
 	}
 
 	/**
-	 * <p>Devuelve información a almacenar.</p>
-	 * @return información a almacenar.
+	 * <p>Devuelve informaciÃ³n a almacenar.</p>
+	 * @return informaciÃ³n a almacenar.
 	 */
 	public Object getPayload() {
 		return payload;

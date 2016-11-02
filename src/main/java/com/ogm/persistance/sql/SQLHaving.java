@@ -1,34 +1,34 @@
 package com.ogm.persistance.sql;
 
 /**
- * <p>Cl醬sula HAVING.</p>
- * @author Oscar Gonz醠ez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Cl谩usula HAVING.</p>
+ * @author Oscar Gonz谩lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
   */
 public class SQLHaving {
 
 	/**
-	 * condici髇 del having.
+	 * condici锟絥 del having.
 	 */
 	private SQLCondition condition = null;
 	/**
 	 * Constructor.
-	 * @param newCondition condici髇 del having.
+	 * @param newCondition condici贸n del having.
 	 */
 	public SQLHaving(SQLCondition newCondition){
 		condition = newCondition;
 	}
 	/**
-	 * <p>Devuelve condici髇.</p>
-	 * @return condici髇
+	 * <p>Devuelve condici贸n.</p>
+	 * @return condici贸n
 	 */
 	public SQLCondition getCondition() {
 		return condition;
 	}
 	/**
-	 * <p>Establece la condici髇.</p>
-	 * @param newCondition condici髇.
+	 * <p>Establece la condici贸n</p>
+	 * @param newCondition condici贸n
 	 */
 	public void setCondition(SQLCondition newCondition) {
 		this.condition = newCondition;

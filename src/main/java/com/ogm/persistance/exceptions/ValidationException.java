@@ -3,8 +3,8 @@ package com.ogm.persistance.exceptions;
 import com.ogm.persistance.util.ErrorMessageID;
 
 /**
- * <p>Esta excepci髇 es lanzada desde los validadores cuando no se supera la validaci髇.</p>
- * @author Oscar Gonz醠ez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Esta excepci贸n es lanzada desde los validadores cuando no se supera la validaci贸n.</p>
+ * @author Oscar Gonz谩lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  *
  */
@@ -25,17 +25,17 @@ public class ValidationException extends PersistanceException {
 
 	/**
 	 * <p>Constructor.</p>
-	 * @param t Excepci髇 original
+	 * @param t Excepci锟絥 original
 	 */
 	public ValidationException(Throwable t) {
 		super(t);
 	}
 
 	/**
-	 * <p>Constructor que permite crear la excepci髇 con un id de mensaje y los par醡etros
+	 * <p>Constructor que permite crear la excepci贸n con un id de mensaje y los par谩metros
 	 * necesarios para completar el mensaje.</p>
-	 * @param errorMessageID C骴igo del mensaje de error
-	 * @param args N鷐eor variable de argumentos para completar el mensaje de error.
+	 * @param errorMessageID C贸digo del mensaje de error
+	 * @param args N煤mero variable de argumentos para completar el mensaje de error.
 	 */
 	public ValidationException(ErrorMessageID errorMessageID,
 			Object... args) {
@@ -43,10 +43,10 @@ public class ValidationException extends PersistanceException {
 	}
 
 	/**
-	 * <p>Constructor que permite crear la excepci髇 con un id de mensaje y los par醡etros
+	 * <p>Constructor que permite crear la excepci贸n con un id de mensaje y los par谩metros
 	 * necesarios para completar el mensaje.</p>
-	 * @param errorMessageID c骴igo del mensaje de error
-	 * @param t Excepci髇 original
+	 * @param errorMessageID c贸digo del mensaje de error
+	 * @param t Excepci贸n original
 	 * @param args variable de argumentos para completar el mensaje de error.
 	 */
 	public ValidationException(ErrorMessageID errorMessageID,
@@ -55,8 +55,8 @@ public class ValidationException extends PersistanceException {
 	}
 
 	/**
-	 * <p>Constructor que permite crear la excepci髇 con un id de mensaje.</p>
-	 * @param errorMessageID c骴igo del mensaje de error
+	 * <p>Constructor que permite crear la excepci贸n con un id de mensaje.</p>
+	 * @param errorMessageID c贸digo del mensaje de error
 	 */
 	public ValidationException(ErrorMessageID errorMessageID) {
 		super(errorMessageID);
@@ -64,8 +64,8 @@ public class ValidationException extends PersistanceException {
 
 	/**
 	 * <p>Constructor.</p>
-	 * @param errorMessageID c骴igo del mensaje de error
-	 * @param t Excepci髇 original
+	 * @param errorMessageID c贸digo del mensaje de error
+	 * @param t Excepci贸n original
 	 */
 	public ValidationException(ErrorMessageID errorMessageID, Throwable t) {
 		super(errorMessageID, t);

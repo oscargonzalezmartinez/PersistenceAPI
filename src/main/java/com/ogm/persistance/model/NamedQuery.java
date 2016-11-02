@@ -3,8 +3,8 @@ package com.ogm.persistance.model;
 import java.util.List;
 
 /**
- * <p>Clase que representa la informaciÛn de una NamedQuery.</p>
- * @author Oscar Gonz·lez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Clase que representa la informaci√≥n de una NamedQuery.</p>
+ * @author Oscar Gonz√°lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 10 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  *

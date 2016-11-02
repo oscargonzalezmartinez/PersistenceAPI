@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * <p>Interfaz que define el contrato de una cache de objetos</p>
- * @author Oscar Gonz·lez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar Gonz√°lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  */
 public interface ICache {
@@ -15,7 +15,7 @@ public interface ICache {
 	 */
 	public String getName();
 	/**
-	 * <p>AÒade una entrada a la cache</p>
+	 * <p>A√±aade una entrada a la cache</p>
 	 * @param key Clave del objeto a insertar
 	 * @param value Valor a insertar en la cache
 	 */

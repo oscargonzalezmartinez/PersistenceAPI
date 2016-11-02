@@ -6,7 +6,7 @@ import com.ogm.persistance.sql.util.RenderFactory;
 
 /**
  * <p>Permite generar joins entre tablas.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  */
@@ -43,7 +43,7 @@ public class SQLJoinCondition extends SQLCondition {
 	 */
 	public SQLJoinCondition(String newOperator, Class newTable1, String newField1, Class newTable2, String newField2) {
 		super();
-		//fijamos la tabla como modelo original de la condición.
+		//fijamos la tabla como modelo original de la condiciï¿½n.
 		clazz = newTable1;
 		operator = newOperator;
 		this.table1 = newTable1;

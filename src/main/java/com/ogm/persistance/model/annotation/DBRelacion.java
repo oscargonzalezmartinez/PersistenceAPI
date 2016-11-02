@@ -6,8 +6,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 /**
- * <p>Anotación usada en la persistencia de objetos. Define la relación entre dos tablas.</p> 
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>AnotaciÃ³n usada en la persistencia de objetos. Define la relaciÃ³n entre dos tablas.</p> 
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  *
  */
@@ -31,14 +31,14 @@ public @interface DBRelacion {
 	 */
 	String targetField();
 	/**
-	 * <p>si la relación es de solo lectura.</p>
+	 * <p>si la relaciï¿½n es de solo lectura.</p>
 	 * @return true si es de solo lectura
 	 */
 	boolean readOnly() default true; 
 	
 	/**
-	 * <p>Indica que la relación se cargará bajo demanda.</p>
-	 * @return true si la relación se cargará bajo demanda.
+	 * <p>Indica que la relaciï¿½n se cargarï¿½ bajo demanda.</p>
+	 * @return true si la relaciï¿½n se cargarï¿½ bajo demanda.
 	 */
 	boolean lazy() default true;
 }

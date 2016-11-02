@@ -12,9 +12,9 @@ import com.ogm.persistance.exceptions.PersistanceException;
 import com.ogm.persistance.util.ErrorMessageID;
 
 /**
- * <p>Este provider obtine la referencia mediante una búsqueda en la contexto jndi local.</p>
- * <p>La entrada JNDI se configura con el parámetro <b>datasource.provider.jndi</b>.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Este provider obtine la referencia mediante una bÃºsqueda en la contexto jndi local.</p>
+ * <p>La entrada JNDI se configura con el parÃ¡metro <b>datasource.provider.jndi</b>.</p>
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  *
@@ -22,7 +22,7 @@ import com.ogm.persistance.util.ErrorMessageID;
 public class JNDIDataSourceProvider extends AbstractDataSourceProvider implements DataSourceProvider {
 
 	/**
-	 * Contexto incial para acceder a JNDI. Sólo accesos locales.
+	 * Contexto incial para acceder a JNDI. SÃ³lo accesos locales.
 	 */
 	private InitialContext ic = null;
 	
@@ -30,7 +30,7 @@ public class JNDIDataSourceProvider extends AbstractDataSourceProvider implement
 		parametersList = Arrays.asList(DATASOURCE_PROVIDER_JNDI);
 	}
 	/**
-     * <p>Si se produce un error lanza la excepción de código ErrorMessageID.PE_00003</p>
+     * <p>Si se produce un error lanza la excepciÃ³n de cÃ³digo ErrorMessageID.PE_00003</p>
 	 * @see com.ogm.persistance.ds.DataSourceProvider#getDataSource()
 	 */
 	public DataSource getDataSource() {
@@ -43,7 +43,7 @@ public class JNDIDataSourceProvider extends AbstractDataSourceProvider implement
 
 
 	/* (non-Javadoc)
-	 * @see es.caser.persistance.ds.DataSourceProvider#getParametersNames()
+	 * @see com.ogm.persistance.ds.DataSourceProvider#getParametersNames()
 	 */
 	public List<String> getParametersNames() {
 		return parametersList;
@@ -51,7 +51,7 @@ public class JNDIDataSourceProvider extends AbstractDataSourceProvider implement
 
 	/** 
 	 * <p>Crea un nuevo contexto JNDI</p>
-	 * <p>Si se produce un error lanza la excepción de código ErrorMessageID.PE_00004</p>
+	 * <p>Si se produce un error lanza la excepciï¿½n de cï¿½digo ErrorMessageID.PE_00004</p>
 	 */
 	public void init() {
 		try {

@@ -9,8 +9,8 @@ import com.ogm.persistance.model.ModelManager;
 /**
  * <p>Esta clase representa una sentencia select.</p>
  * <p>Esta compuesta por una serie de campos, una clausula from, un where , un orderby, etc.</p>
- * <p>Esta clase se usará cuando necesitemos algo más que un CRUD de una tabla.</p>
- * <p>Un ejemplo de uso sería:<br>
+ * <p>Esta clase se usarÃ¡ cuando necesitemos algo mÃ¡s que un CRUD de una tabla.</p>
+ * <p>Un ejemplo de uso serÃ­a:<br>
  * <code>
  * 		//Definimos el modelo de la salida de la sentencia
  *		ModelDefinition outputModel = ModelDefinition.newModel(TareaRecibos.class);
@@ -19,8 +19,8 @@ import com.ogm.persistance.model.ModelManager;
  *		tareaRecibos.setFechaHasta(new Date());
  *		SQLSelect select = new SQLSelect();
  *
- *		//añadimos todos los campos de la salida
- *		//con alias SQL para el mapeo a otra clase distinta que las indicadas aquí
+ *		//aï¿½adimos todos los campos de la salida
+ *		//con alias SQL para el mapeo a otra clase distinta que las indicadas aquï¿½
  *		select.addSelectField(DetalleSuceso.class, "numeroDetalle", "numeroDetalle")
  *				.addSelectField(Expediente.class, "reciboAs400", "reciboAs400")
  *				.addSelectField(Expediente.class, "ciaRecibo", "ciaRecibo")
@@ -34,20 +34,20 @@ import com.ogm.persistance.model.ModelManager;
  *				.addSelectField(DetalleSuceso.class, "fechaRevision", "fechaRevision")
  *				.addSelectField(DetalleSuceso.class, "fechaSuceso", "fechaSuceso");
  *		
- *		//añadimos las tablas
+ *		//aï¿½adimos las tablas
  *		select.addFrom(Expediente.class).addFrom(DetalleSuceso.class);
  *		
- *		//añadimos las restricciones
+ *		//aï¿½adimos las restricciones
  *		select.addCondition(new SQLJoinCondition(Expediente.class,"expediente",DetalleSuceso.class,"expediente"))
  *			.addCondition(SQLCondition.getAND(DetalleSuceso.class, "tipoSuceso", 1))
  *			.addCondition(SQLCondition.getAND_IS_NULL(DetalleSuceso.class,"fechaRevision"));
  *			.addCondition(SQLCondition.getAND(DetalleSuceso.class, "responsable", tareaRecibos.getGrupoResponsable()));
  *			.addCondition(SQLCondition.getAND_IS_NOT_NULL(Expediente.class,"expediente"));
  *			.addCondition(new SQLBetweenCondition(Expediente.class,"inicioExped","finExped"));
- *		//el resultado será de tipo List<TareaRecibos>
+ *		//el resultado serÃ¡ de tipo List<TareaRecibos>
  *		select.setOutputModel(outputModel);
  * </code>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  */
@@ -62,8 +62,8 @@ public class SQLSelect{
 	 */
 	private String objectQuery = null;
 	/**
-	 * Listado de parámetros de la query cuando se indica en SQL puro u Object Query.
-	 * Si se usa de forma programática esta lista está vacía.
+	 * Listado de parÃ¡metros de la query cuando se indica en SQL puro u Object Query.
+	 * Si se usa de forma programÃ¡tica esta lista estÃ¡ vacÃ­a.
 	 */
 	private List params = null;
 	/**
@@ -194,7 +194,7 @@ public class SQLSelect{
 			return modelManager.getModel(outputModelClass);
 		}
 		
-		//TODO lanzar una excepción?
+		//TODO lanzar una excepciï¿½n?
 		return null;
 	}
 
@@ -255,7 +255,7 @@ public class SQLSelect{
 			return;
 		}
 
-		//en Java 5 con número variables de argumentos 
+		//en Java 5 con nï¿½mero variables de argumentos 
 		//en llamadas de este tipo setSqlQuery("query",null)
 		// newParams.length.length == 1 y newParams[0] == null
 		

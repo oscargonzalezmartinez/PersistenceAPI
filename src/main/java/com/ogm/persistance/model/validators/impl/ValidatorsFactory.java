@@ -8,15 +8,15 @@ import com.ogm.persistance.model.validators.Validator;
 import com.ogm.persistance.util.ClassUtil;
 
 /**
- * <p>Factoría para los diferentes validadores.</p>
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Factorï¿½a para los diferentes validadores.</p>
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  */
 public final class ValidatorsFactory {
 
 	/**
-	 * Factoría de beans.
+	 * FactorÃ­a de beans.
 	 */
 	private static XmlBeanFactory bf = new XmlBeanFactory(new ClassPathResource("/"+ClassUtil.getPackageName(ValidatorsFactory.class) + "/validators.xml", ValidatorsFactory.class));
 

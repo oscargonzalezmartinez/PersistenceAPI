@@ -9,15 +9,15 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * <p>Implementación del interfaz ICache</p>.
- * @author Oscar González (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>ImplementaciÃ³n del interfaz ICache</p>.
+ * @author Oscar GonzÃ¡lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  *
  */
 public class CacheImpl implements ICache{
 
 	/**
-	 * Valor máximo por defecto para el número de elmentos en la caché.
+	 * Valor mï¿½ximo por defecto para el nÃºmero de elmentos en la cachÃ©.
 	 */
 	private static final int DEFAULT_MAX_CAPACITY_5000 = 5000;
 
@@ -32,16 +32,16 @@ public class CacheImpl implements ICache{
 	private static final int TO_MILLI = 1000;
 
 	/**
-	 * Tiempo máximo que puede permanecer activo un objeto en caché antes de ser invalidado.
+	 * Tiempo mÃ¡ximo que puede permanecer activo un objeto en cachÃ© antes de ser invalidado.
 	 */
 	private long expireTime = -1;
 	
 	/**
-	 * Número máximo de elementos en la cache.
+	 * NÃºmero mÃ¡ximo de elementos en la cache.
 	 */
 	private long maxCapacity   = DEFAULT_MAX_CAPACITY_5000;
 	/**
-	 * Objeto para la sincronización.
+	 * Objeto para la sincronizaciÃ³n.
 	 */
 	private Object lock = new Object();
 	/**
@@ -58,10 +58,10 @@ public class CacheImpl implements ICache{
 	public CacheImpl(){}
 	
 	/* (non-Javadoc)
-	 * @see es.caser.po2008.dao.cache.ICache#addEntry(java.io.Serializable, java.lang.Object)
+	 * @see com.ogm.persistance.cache.ICache#addEntry(java.io.Serializable, java.lang.Object)
 	 */
 	public void addEntry(Serializable key, Object value) {
-		log.info("Añadiendo objeto a la cache key ["+key+"] tipo " + (value == null?null:value.getClass()));
+		log.info("Aï¿½adiendo objeto a la cache key ["+key+"] tipo " + (value == null?null:value.getClass()));
 		synchronized (lock) {
 			if (cache.containsKey(key)){
 				cache.remove(key);
@@ -76,16 +76,16 @@ public class CacheImpl implements ICache{
 
 	/**
 	 * Elimina todos los elementos de la cache.
-	 * @see es.caser.po2008.dao.cache.ICache#expire()
+	 * @see com.ogm.persistance.cache.ICache#expire()
 	 */
 	public void expire() {
 		cache.clear();
 	}
 
 	/**
-	 * Elimina de la caché el objeto con clave <b>key</b>.
+	 * Elimina de la cachÃ© el objeto con clave <b>key</b>.
 	 * @return el objeto a eliminar si existe.
-	 * @see es.caser.po2008.dao.cache.ICache#expireEntry(java.io.Serializable)
+	 * @see com.ogm.persistance.cache.ICache#expireEntry(java.io.Serializable)
 	 */
 	public Object expireEntry(Serializable key) {
 		return cache.remove(key);
@@ -93,28 +93,28 @@ public class CacheImpl implements ICache{
 
 	/**
 	 * <p>Devuelve el objeto de la cache cuya clave es <code>key</code></p>.
-	 * <p>Si el objeto lleva vivo en la caché más que <b>expireTime</b>, se 
+	 * <p>Si el objeto lleva vivo en la cachÃ© mÃ¡s que <b>expireTime</b>, se 
 	 * invoca a expireEntry y se retorna null.</p>
-	 * <p>Sólo se raliza esta comprobación si expireTime es -1.</p>
+	 * <p>SÃ³lo se raliza esta comprobaciÃ³n si expireTime es -1.</p>
 	 * @param key Clave del objeto a buscar en la cache.
 	 * @return objeto de la cache cuya clave es <code>key</code>.
-	 * @see es.caser.po2008.dao.cache.ICache#getEntry(java.io.Serializable)
+	 * @see com.ogm.persistance.cache.ICache#getEntry(java.io.Serializable)
 	 */
 	public Object getEntry(Serializable key) {
 		CacheEntry cacheEntry = cache.get(key);
 		if (cacheEntry == null){
 			return null;
 		}
-		//si no hay definido tiempo máximo se devuelve directamente
+		//si no hay definido tiempo mï¿½ximo se devuelve directamente
 		if (expireTime == -1){
 			return cacheEntry.getPayload();
 		}
 		
-		//si ha pasado el tiempo indicado para la expiración lo eliminamos
-		//y devolvemos nulo, así no se devuelve información incorrecta
+		//si ha pasado el tiempo indicado para la expiraciÃ³n lo eliminamos
+		//y devolvemos nulo, asï¿½ no se devuelve informaciÃ³n incorrecta
 		long aliveTime = System.currentTimeMillis() - cacheEntry.getCreationTime();
 		if (aliveTime > expireTime ){
-			log.info("Eliminando entrada ["+key+"] por tiempo máximo excedido");
+			log.info("Eliminando entrada ["+key+"] por tiempo mï¿½ximo excedido");
 			expireEntry(cacheEntry.getKey());
 			return null;
 		}
@@ -126,7 +126,7 @@ public class CacheImpl implements ICache{
 	 */
 	private void capacityExceeded(){
 		log.info("capacityExceeded");
-		//eliminamos el más antiguo
+		//eliminamos el mÃ¡s antiguo
 		long creationTime = Long.MAX_VALUE;
 		Serializable keyToDelete = null;
 		for (Iterator<Serializable> iterator = cache.keySet().iterator(); iterator.hasNext();) {
@@ -147,7 +147,7 @@ public class CacheImpl implements ICache{
 	
 	/**
 	 * Nombre por la que se referencia esta cache.
-	 * @see es.caser.po2008.dao.cache.ICache#getName()
+	 * @see com.ogm.persistance.cache.cache.ICache#getName()
 	 */
 	public String getName() {
 		return this.toString();
@@ -162,7 +162,7 @@ public class CacheImpl implements ICache{
 	}
 
 	/**
-	 * <p>Fija la referencia al gestor de cachés</p>.
+	 * <p>Fija la referencia al gestor de cachÃ©s</p>.
 	 * @param newCacheManager Gestor de caches.
 	 */
 	public void setCacheManager(CacheManager newCacheManager) {
@@ -171,32 +171,32 @@ public class CacheImpl implements ICache{
 	}
 
 	/**
-	 * <p>Devuelve el tiempo máximo que puede permanecer activo un objeto en caché.</p>
-	 * @return tiempo máximo que puede permanecer activo un objeto en caché.
+	 * <p>Devuelve el tiempo mÃ¡ximo que puede permanecer activo un objeto en cachÃ©.</p>
+	 * @return tiempo mÃ¡ximo que puede permanecer activo un objeto en cachÃ©.
 	 */
 	public long getExpireTime() {
 		return expireTime;
 	}
 
 	/**
-	 * <p>Tiempo de expiración de objetos en caché indicado en segundos.</p>
-	 * @param newExpireTime tiempo de expiración de objetos en caché indicado en segundos 
+	 * <p>Tiempo de expiraciÃ³n de objetos en cachÃ© indicado en segundos.</p>
+	 * @param newExpireTime tiempo de expiraciï¿½n de objetos en cachÃ© indicado en segundos 
 	 */
 	public void setExpireTime(long newExpireTime) {
 		this.expireTime = newExpireTime*TO_MILLI;//se nos indica en segundos, lo pasamos a milisegundos
 	}
 
 	/**
-	 * <p>Devuelve el número máximo de elementos que puede contener la caché.</p>
-	 * @return número máximo de elementos que puede contener la caché.
+	 * <p>Devuelve el nÃºmero mÃ¡ximo de elementos que puede contener la cachÃ©.</p>
+	 * @return nÃºmero mÃ¡ximo de elementos que puede contener la cachÃ©.
 	 */
 	public long getMaxCapacity() {
 		return maxCapacity;
 	}
 
 	/**
-	 * <p>Establece el número máximo de elementos que puede contener la caché.</p>
-	 * @param newMaxCapacity número máximo de elementos que puede contener la caché.
+	 * <p>Establece elnÃºmero mÃ¡ximo de elementos que puede contener la cachÃ©.</p>
+	 * @param newMaxCapacity nÃºmero mÃ¡ximo de elementos que puede contener la cachÃ©.
 	 */
 	public void setMaxCapacity(long newMaxCapacity) {
 		this.maxCapacity = newMaxCapacity;

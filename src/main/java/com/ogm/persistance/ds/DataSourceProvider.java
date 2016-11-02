@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 /**
  * <p>Interfaz para definir el acceso al data source.</p>
- * @author Oscar Gonz醠ez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * @author Oscar Gonz谩lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 1.0
  *
@@ -20,22 +20,22 @@ public interface DataSourceProvider {
 	public DataSource getDataSource();
 
 	/**
-	 * <p>Devuelve un Listado de nombres de par醡etros de la configuraci髇.</p>
-	 * @return Listado de nombres de par醡etros de la configuraci髇.
+	 * <p>Devuelve un Listado de nombres de par谩metros de la configuraci贸n.</p>
+	 * @return Listado de nombres de par谩metros de la configuraci贸n.
 	 */
 	public List<String> getParametersNames();
 	
 	/**
-	 * <p>Fija los valores de configuraci髇 con las claves indicadas por lo devuelto
-	 * a la invocaci髇 de <code>getParametersNames()</code>.</p>
-	 * @param parameters par醡etros de configuraci髇.
+	 * <p>Fija los valores de configuraci贸n con las claves indicadas por lo devuelto
+	 * a la invocaci贸n de <code>getParametersNames()</code>.</p>
+	 * @param parameters par谩metros de configuraci贸n.
 	 */
 	public void setParameters(Map<String,String> parameters);
 	
 	/**
-	 * <p>M閠odo invocado para la inicializaci髇 del provider.
-	 * <Se llama una vez fijados todos los par醡etros de configuraci髇, con lo
-	 * que est醤 disponibles para la inicializaci髇.</p>
+	 * <p>M锟絫odo invocado para la inicializaci贸n del provider.
+	 * <Se llama una vez fijados todos los par锟絤etros de configuraci贸n, con lo
+	 * que est谩n disponibles para la inicializaci贸n.</p>
 	 */
 	public void init();
 }

@@ -55,43 +55,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                     </execution>
                 </executions>
             </plugin>
-<!-- 
-    <plugin> 
-        <artifactId>maven-antrun-plugin</artifactId> 
-        <executions> 
-            <execution> 
-            <id>substitution</id> 
-            <phase>process-resources</phase> 
-             <configuration> 
-             <tasks> 
-             
-                <property name="ant.regexp.regexpimpl" value="org.apache.tools.ant.util.regexp.Jdk14RegexpRegexp"/>
-                <tstamp>
-                    <format property="TSTAMP" pattern="dd/MM/yyyy HH:mm:ss" />
-                </tstamp>
-               
-                <replaceregexp file="${project.build.outputDirectory}/es/caser/persistance/bundle/app.properties"
-                                 match="ant-build-date"
-                                 replace="${TSTAMP}"
-                                 byline="true"/>
-                 <replaceregexp file="${project.build.outputDirectory}/es/caser/persistance/bundle/app.properties"
-                                 match="version.internal"
-                                 replace="${version.internal}"
-                                 byline="true"/>
-              </tasks> 
-               </configuration> 
-               <goals> <goal>run</goal> </goals>
-             </execution> 
-         </executions> 
-        <dependencies> 
-        <dependency> 
-            <groupId>ant</groupId> 
-            <artifactId>ant-nodeps</artifactId> 
-            <version>1.6.5</version> 
-        </dependency> 
-    </dependencies> 
-    </plugin> 
--->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -106,6 +70,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                     </archive>
                 </configuration>
             </plugin>
+            
+
+
         </plugins>
         <resources>
             <resource>
@@ -130,6 +97,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     </build>
     <reporting>
         <plugins>
+        <!-- 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -139,11 +107,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                     <suppressionsLocation>${basedir}/checkstyle-suppressions.xml</suppressionsLocation>
                     <enableRulesSummary>false</enableRulesSummary>
                 </configuration>
-            </plugin>
+            </plugin> 
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.4</version>
+                <version>2.10.4</version>
                 <configuration>
                     <linksource>true</linksource>
                     <links>
@@ -152,11 +121,26 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                     </links>
                 </configuration>
             </plugin>
+            
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>2.3</version>
+                <version>3.0.4</version>
             </plugin>
+            
+            <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<formats>
+						<format>html</format>
+						<format>xml</format>
+					</formats>
+					<check />
+				</configuration>
+			</plugin>
+			
         </plugins>
     </reporting>
     <dependencies>

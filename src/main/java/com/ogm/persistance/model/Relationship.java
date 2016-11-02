@@ -1,8 +1,8 @@
 package com.ogm.persistance.model;
 
 /**
- * <p>Clase que define la relaci髇 entre una tabla padre y una tabla hija.</p>
- * @author Oscar Gonz醠ez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Clase que define la relaci贸n entre una tabla padre y una tabla hija.</p>
+ * @author Oscar Gonz谩lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.1 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  *
@@ -13,16 +13,16 @@ public class Relationship {
 	 */
 	private String field = null;
 	/**
-	 * Clase con la que se tien la relaci髇
+	 * Clase con la que se tiene la relaci贸n
 	 */
 	private Class targetClass = null;
 	/**
-	 * Campo de la clase hija que sirve de uni髇
+	 * Campo de la clase hija que sirve de uni贸n
 	 */
 	private String targetField = null;
 	
 	/**
-	 * true si esta relaci髇 es de solo lectura
+	 * true si esta relaci贸n es de solo lectura
 	 */
 	private Boolean readOnly = null;
 	
@@ -51,27 +51,18 @@ public class Relationship {
 	public String getField() {
 		return field;
 	}
-//	public void setField(String newField) {
-//		this.field = newField;
-//	}
+
 	public Class getTargetClass() {
 		return targetClass;
 	}
-//	public void setTargetClass(Class newTargetClass) {
-//		this.targetClass = newTargetClass;
-//	}
+
 	public String getTargetField() {
 		return targetField;
 	}
-//	public void setTargetField(String newTargetField) {
-//		this.targetField = newTargetField;
-//	}
+
 	public Boolean isReadOnly() {
 		return readOnly;
 	}
-//	public void setReadOnly(Boolean newReadOnly) {
-//		this.readOnly = newReadOnly;
-//	}
 	
 	public Boolean isLazy() {
 		return lazy;

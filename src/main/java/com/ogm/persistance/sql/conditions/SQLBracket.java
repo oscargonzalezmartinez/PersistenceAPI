@@ -4,8 +4,8 @@ import com.ogm.persistance.sql.SQLCondition;
 import com.ogm.persistance.sql.SQLConstants;
 import com.ogm.persistance.sql.util.RenderFactory;
 /**
- * <p>Esta condiciÛn se utiliza para abrir y cerrar parÈntesis y asÌ agrupar condiciones.
- * @author Oscar Gonz·lez (latest modification by $LastChangedBy: OGOMAR01 $)
+ * <p>Esta condici√≥n se utiliza para abrir y cerrar par√©ntesis y as√≠ agrupar condiciones.
+ * @author Oscar Gonz√°lez (latest modification by $LastChangedBy: OGOMAR01 $)
  * @version 1.0 $LastChangedRevision: 5451 $ $LastChangedDate: 2014-04-10 16:44:50 +0200 (jue, 10 abr 2014) $
  * @since 2.0
  */
@@ -25,11 +25,11 @@ public final class SQLBracket extends SQLCondition{
 	}
 	
 	/**
-	 * Representa un parÈntesis abierto.
+	 * Representa un par√©ntesis abierto.
 	 */
 	public static final SQLBracket OPEN = new SQLBracket(SQLConstants.OPEN_BRACKET, Boolean.TRUE);
 	/**
-	 * Representa un parÈntesis cerrado
+	 * Representa un par√©ntesis cerrado
 	 */
 	public static final SQLBracket CLOSE = new SQLBracket(SQLConstants.CLOSE_BRACKET, Boolean.FALSE);
 	
